@@ -42,9 +42,9 @@ bpy.data.objects['Robot_Phase1']['hip_refinement']='Narrow tapered shield, expos
 sc=bpy.context.scene;cam=sc.camera
 cam.location=(.65,-1.8,1.02);cam.rotation_euler=(Vector((0,.015,.855))-cam.location).to_track_quat('-Z','Y').to_euler();cam.data.ortho_scale=.68
 sc.render.resolution_x=1100;sc.render.resolution_y=850
-sc.render.filepath=r'D:\codex+blender\model\hip_connections_detail.png';bpy.ops.render.render(write_still=True)
+sc.render.filepath=r'D:\codex+blender\model\robot\renders\previews\hip_connections_detail.png';bpy.ops.render.render(write_still=True)
 cam.location=(2.6,-4.5,2.5);cam.rotation_euler=(Vector((0,0,.91))-cam.location).to_track_quat('-Z','Y').to_euler();cam.data.ortho_scale=2.2
 sc.render.resolution_x=900;sc.render.resolution_y=1000
-sc.render.filepath=r'D:\codex+blender\model\hip_connections_full.png';bpy.ops.render.render(write_still=True)
-bpy.ops.wm.save_as_mainfile(filepath=r'D:\codex+blender\model\robot_hips_connected.blend')
+sc.render.filepath=r'D:\codex+blender\model\robot\renders\previews\hip_connections_full.png';bpy.ops.render.render(write_still=True)
+bpy.ops.wm.save_as_mainfile(filepath=r'D:\codex+blender\model\robot\blender\history\robot_hips_connected.blend')
 print('Saved hip refinement; original pelvis blockouts retained hidden. Continuous hip axle connects both thigh yokes through chassis.')

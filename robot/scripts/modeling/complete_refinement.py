@@ -2,7 +2,7 @@ import bpy, math, json, bmesh
 from pathlib import Path
 from mathutils import Vector, Matrix
 H={};exec(compile(Path(r'D:\codex+blender\my-first-project\scripts\phase1_robot_blockout.py').read_text(),'helpers','exec'),H)
-OUT=Path(r'D:\codex+blender\model\final_review');OUT.mkdir(exist_ok=True)
+OUT=Path(r'D:\codex+blender\model\robot\renders\reviews\final_review');OUT.mkdir(exist_ok=True)
 C=H['collection']('PH14_Complete_Refinement');M=H['mats']()
 if len(C.objects):raise RuntimeError('Refinement already exists; do not apply transforms twice')
 visible=[o for o in bpy.data.objects if o.type in ('MESH','CURVE') and not o.hide_render and not o.hide_get() and o.parent]
@@ -87,5 +87,5 @@ for ob in C.objects:
   bm=bmesh.new();bm.from_mesh(ob.data);bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(ob.data);bm.free()
 bpy.context.view_layer.update()
 bpy.data.objects['Robot_Phase1']['refinement_pass']='All eight planned areas: proportion, continuous chest, thigh coverage, fitted shins and toes, shoulder aprons, integrated head, rear armor, surface normals.'
-bpy.ops.wm.save_as_mainfile(filepath=str(OUT.parent/'robot_complete_refined.blend'))
+bpy.ops.wm.save_as_mainfile(filepath=str(Path('D:\\codex+blender\\model\\blender\\history\\robot_complete_refined.blend')))
 print('Complete refinement saved; ready for multiview inspection.')

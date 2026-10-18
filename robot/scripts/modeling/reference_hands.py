@@ -60,11 +60,11 @@ bpy.context.view_layer.update()
 sc=bpy.context.scene;cam=sc.camera
 cam.location=(.95,-1.8,1.03);cam.rotation_euler=(Vector((.47,-.02,.72))-cam.location).to_track_quat('-Z','Y').to_euler();cam.data.ortho_scale=.32
 sc.render.resolution_x=1000;sc.render.resolution_y=1000
-sc.render.filepath=r'D:\codex+blender\model\reference_hand_closeup.png'
+sc.render.filepath=r'D:\codex+blender\model\robot\renders\previews\reference_hand_closeup.png'
 bpy.ops.render.render(write_still=True)
 cam.location=(2.6,-4.5,2.5);cam.rotation_euler=(Vector((0,0,.91))-cam.location).to_track_quat('-Z','Y').to_euler();cam.data.ortho_scale=2.2
 sc.render.resolution_x=900;sc.render.resolution_y=1000
-sc.render.filepath=r'D:\codex+blender\model\reference_hands_full.png'
+sc.render.filepath=r'D:\codex+blender\model\robot\renders\previews\reference_hands_full.png'
 bpy.ops.render.render(write_still=True)
-bpy.ops.wm.save_as_mainfile(filepath=r'D:\codex+blender\model\robot_reference_hands.blend')
+bpy.ops.wm.save_as_mainfile(filepath=r'D:\codex+blender\model\robot\blender\history\robot_reference_hands.blend')
 print('Reference hands saved with connected curled digits and reduced knuckle hardware.')

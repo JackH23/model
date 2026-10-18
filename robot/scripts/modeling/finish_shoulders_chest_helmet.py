@@ -4,7 +4,7 @@ from mathutils import Vector
 H={};exec(compile(Path(r'D:\codex+blender\my-first-project\scripts\phase1_robot_blockout.py').read_text(),'helpers','exec'),H)
 C=H['collection']('PH17_ShoulderChestHelmet_Finish');M=H['mats']()
 if len(C.objects):raise RuntimeError('Pass already applied')
-OUT=Path(r'D:\codex+blender\model\assembly_finish_review');OUT.mkdir(exist_ok=True)
+OUT=Path(r'D:\codex+blender\model\robot\renders\reviews\assembly_finish_review');OUT.mkdir(exist_ok=True)
 def hide(o):o.hide_render=True;o.hide_set(True)
 def mesh(n,v,f,m='Ivory'):
  ob=H['finish_mesh'](n,v,f,C,M[m],smooth=True)
@@ -107,5 +107,5 @@ for ob in C.objects:
  if ob.type=='MESH':
   bm=bmesh.new();bm.from_mesh(ob.data);bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(ob.data);bm.free()
 bpy.context.view_layer.update()
-bpy.ops.wm.save_as_mainfile(filepath=str(OUT.parent/'robot_assembly_finished.blend'))
+bpy.ops.wm.save_as_mainfile(filepath=str(Path('D:\\codex+blender\\model\\blender\\history\\robot_assembly_finished.blend')))
 print('Rebuilt helmet and visor using quad surfaces; seated both shoulder bearings; reduced chest projection by 22 percent.')

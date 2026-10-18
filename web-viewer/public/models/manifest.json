@@ -1,0 +1,2330 @@
+{
+  "sourceBlend": "D:\\codex+blender\\model\\robot\\blender\\current\\robot_attachments_repaired.blend",
+  "objects": 387,
+  "glbBytes": 4574844,
+  "gltfVersion": "2.0",
+  "parts": [
+    {
+      "sourceName": "Neck_Joint",
+      "region": "Torso",
+      "label": "Neck Joint",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Waist_Joint",
+      "region": "Torso",
+      "label": "Waist Joint",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Torso_InternalCore",
+      "region": "Torso",
+      "label": "InternalCore",
+      "sourcePolygons": 378
+    },
+    {
+      "sourceName": "Shoulder_Joint.L",
+      "region": "Left arm",
+      "label": "Shoulder Joint / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Elbow_Joint.L",
+      "region": "Left arm",
+      "label": "Elbow Joint / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Shoulder_Joint.R",
+      "region": "Right arm",
+      "label": "Shoulder Joint / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Elbow_Joint.R",
+      "region": "Right arm",
+      "label": "Elbow Joint / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Forearm_Core.L",
+      "region": "Left arm",
+      "label": "Forearm Core / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Forearm_Core.R",
+      "region": "Right arm",
+      "label": "Forearm Core / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Wrist_Joint.L",
+      "region": "Left arm",
+      "label": "Wrist Joint / left",
+      "sourcePolygons": 288
+    },
+    {
+      "sourceName": "Wrist_Joint.R",
+      "region": "Right arm",
+      "label": "Wrist Joint / right",
+      "sourcePolygons": 288
+    },
+    {
+      "sourceName": "Hip_Joint.L",
+      "region": "Pelvis",
+      "label": "Hip Joint / left",
+      "sourcePolygons": 288
+    },
+    {
+      "sourceName": "Hip_Joint.R",
+      "region": "Pelvis",
+      "label": "Hip Joint / right",
+      "sourcePolygons": 288
+    },
+    {
+      "sourceName": "Elbow_Rim.L",
+      "region": "Left arm",
+      "label": "Elbow Rim / left",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Elbow_Axle.L",
+      "region": "Left arm",
+      "label": "Elbow Axle / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Hip_Rim.L",
+      "region": "Pelvis",
+      "label": "Hip Rim / left",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Hip_Axle.L",
+      "region": "Pelvis",
+      "label": "Hip Axle / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Hip_Status.L",
+      "region": "Pelvis",
+      "label": "Hip Status / left",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Elbow_Rim.R",
+      "region": "Right arm",
+      "label": "Elbow Rim / right",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Elbow_Axle.R",
+      "region": "Right arm",
+      "label": "Elbow Axle / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Hip_Rim.R",
+      "region": "Pelvis",
+      "label": "Hip Rim / right",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Hip_Axle.R",
+      "region": "Pelvis",
+      "label": "Hip Axle / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Hip_Status.R",
+      "region": "Pelvis",
+      "label": "Hip Status / right",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Belt_Center",
+      "region": "Pelvis",
+      "label": "Belt Center",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Belt_Indicator",
+      "region": "Pelvis",
+      "label": "Belt Indicator",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Repair_NeckUpperSocket",
+      "region": "Torso",
+      "label": "Repair NeckUpperSocket",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Repair_NeckUpperTrim",
+      "region": "Torso",
+      "label": "Repair NeckUpperTrim",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Repair_NeckBaseCollar",
+      "region": "Torso",
+      "label": "Repair NeckBaseCollar",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Repair_NeckBaseArmor",
+      "region": "Torso",
+      "label": "Repair NeckBaseArmor",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Ref_Wrist.L",
+      "region": "Left arm",
+      "label": "Wrist / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_PalmCore.L",
+      "region": "Torso",
+      "label": "PalmCore / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_HandArmor.L",
+      "region": "Left arm",
+      "label": "HandArmor / left",
+      "sourcePolygons": 261
+    },
+    {
+      "sourceName": "Ref_WristGold.L",
+      "region": "Left arm",
+      "label": "WristGold / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_ArmorBolt_-0.035.L",
+      "region": "Torso",
+      "label": "ArmorBolt -0.035 / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_ArmorBolt_0.035.L",
+      "region": "Torso",
+      "label": "ArmorBolt 0.035 / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_MCP_0.L",
+      "region": "Left arm",
+      "label": "MCP 0 / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_KnuckleGold_0.L",
+      "region": "Left arm",
+      "label": "KnuckleGold 0 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Finger_0_0.L",
+      "region": "Left arm",
+      "label": "Finger 0 0 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Dorsal_0_0.L",
+      "region": "Left arm",
+      "label": "Dorsal 0 0 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Hinge_0_0.L",
+      "region": "Torso",
+      "label": "Hinge 0 0 / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_HingePin_0_0.L",
+      "region": "Torso",
+      "label": "HingePin 0 0 / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_Finger_0_1.L",
+      "region": "Left arm",
+      "label": "Finger 0 1 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Dorsal_0_1.L",
+      "region": "Left arm",
+      "label": "Dorsal 0 1 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Hinge_0_1.L",
+      "region": "Torso",
+      "label": "Hinge 0 1 / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_HingePin_0_1.L",
+      "region": "Torso",
+      "label": "HingePin 0 1 / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_Finger_0_2.L",
+      "region": "Left arm",
+      "label": "Finger 0 2 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Dorsal_0_2.L",
+      "region": "Left arm",
+      "label": "Dorsal 0 2 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_MCP_1.L",
+      "region": "Left arm",
+      "label": "MCP 1 / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_KnuckleGold_1.L",
+      "region": "Left arm",
+      "label": "KnuckleGold 1 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Finger_1_0.L",
+      "region": "Left arm",
+      "label": "Finger 1 0 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Dorsal_1_0.L",
+      "region": "Left arm",
+      "label": "Dorsal 1 0 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Hinge_1_0.L",
+      "region": "Torso",
+      "label": "Hinge 1 0 / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_HingePin_1_0.L",
+      "region": "Torso",
+      "label": "HingePin 1 0 / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_Finger_1_1.L",
+      "region": "Left arm",
+      "label": "Finger 1 1 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Dorsal_1_1.L",
+      "region": "Left arm",
+      "label": "Dorsal 1 1 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Hinge_1_1.L",
+      "region": "Torso",
+      "label": "Hinge 1 1 / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_HingePin_1_1.L",
+      "region": "Torso",
+      "label": "HingePin 1 1 / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_Finger_1_2.L",
+      "region": "Left arm",
+      "label": "Finger 1 2 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Dorsal_1_2.L",
+      "region": "Left arm",
+      "label": "Dorsal 1 2 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_MCP_2.L",
+      "region": "Left arm",
+      "label": "MCP 2 / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_KnuckleGold_2.L",
+      "region": "Left arm",
+      "label": "KnuckleGold 2 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Finger_2_0.L",
+      "region": "Left arm",
+      "label": "Finger 2 0 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Dorsal_2_0.L",
+      "region": "Left arm",
+      "label": "Dorsal 2 0 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Hinge_2_0.L",
+      "region": "Torso",
+      "label": "Hinge 2 0 / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_HingePin_2_0.L",
+      "region": "Torso",
+      "label": "HingePin 2 0 / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_Finger_2_1.L",
+      "region": "Left arm",
+      "label": "Finger 2 1 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Dorsal_2_1.L",
+      "region": "Left arm",
+      "label": "Dorsal 2 1 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Hinge_2_1.L",
+      "region": "Torso",
+      "label": "Hinge 2 1 / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_HingePin_2_1.L",
+      "region": "Torso",
+      "label": "HingePin 2 1 / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_Finger_2_2.L",
+      "region": "Left arm",
+      "label": "Finger 2 2 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Dorsal_2_2.L",
+      "region": "Left arm",
+      "label": "Dorsal 2 2 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_MCP_3.L",
+      "region": "Left arm",
+      "label": "MCP 3 / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_KnuckleGold_3.L",
+      "region": "Left arm",
+      "label": "KnuckleGold 3 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Finger_3_0.L",
+      "region": "Left arm",
+      "label": "Finger 3 0 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Dorsal_3_0.L",
+      "region": "Left arm",
+      "label": "Dorsal 3 0 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Hinge_3_0.L",
+      "region": "Torso",
+      "label": "Hinge 3 0 / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_HingePin_3_0.L",
+      "region": "Torso",
+      "label": "HingePin 3 0 / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_Finger_3_1.L",
+      "region": "Left arm",
+      "label": "Finger 3 1 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Dorsal_3_1.L",
+      "region": "Left arm",
+      "label": "Dorsal 3 1 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Hinge_3_1.L",
+      "region": "Torso",
+      "label": "Hinge 3 1 / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_HingePin_3_1.L",
+      "region": "Torso",
+      "label": "HingePin 3 1 / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_Finger_3_2.L",
+      "region": "Left arm",
+      "label": "Finger 3 2 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Dorsal_3_2.L",
+      "region": "Left arm",
+      "label": "Dorsal 3 2 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_ThumbSocket.L",
+      "region": "Left arm",
+      "label": "ThumbSocket / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_Thumb_0.L",
+      "region": "Left arm",
+      "label": "Thumb 0 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_ThumbJoint_0.L",
+      "region": "Left arm",
+      "label": "ThumbJoint 0 / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_Thumb_1.L",
+      "region": "Left arm",
+      "label": "Thumb 1 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_ThumbJoint_1.L",
+      "region": "Left arm",
+      "label": "ThumbJoint 1 / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_Thumb_2.L",
+      "region": "Left arm",
+      "label": "Thumb 2 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_ThumbRootArmor.L",
+      "region": "Left arm",
+      "label": "ThumbRootArmor / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Wrist.R",
+      "region": "Right arm",
+      "label": "Wrist / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_PalmCore.R",
+      "region": "Torso",
+      "label": "PalmCore / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_HandArmor.R",
+      "region": "Right arm",
+      "label": "HandArmor / right",
+      "sourcePolygons": 261
+    },
+    {
+      "sourceName": "Ref_WristGold.R",
+      "region": "Right arm",
+      "label": "WristGold / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_ArmorBolt_-0.035.R",
+      "region": "Torso",
+      "label": "ArmorBolt -0.035 / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_ArmorBolt_0.035.R",
+      "region": "Torso",
+      "label": "ArmorBolt 0.035 / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_MCP_0.R",
+      "region": "Right arm",
+      "label": "MCP 0 / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_KnuckleGold_0.R",
+      "region": "Right arm",
+      "label": "KnuckleGold 0 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Finger_0_0.R",
+      "region": "Right arm",
+      "label": "Finger 0 0 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Dorsal_0_0.R",
+      "region": "Right arm",
+      "label": "Dorsal 0 0 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Hinge_0_0.R",
+      "region": "Torso",
+      "label": "Hinge 0 0 / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_HingePin_0_0.R",
+      "region": "Torso",
+      "label": "HingePin 0 0 / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_Finger_0_1.R",
+      "region": "Right arm",
+      "label": "Finger 0 1 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Dorsal_0_1.R",
+      "region": "Right arm",
+      "label": "Dorsal 0 1 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Hinge_0_1.R",
+      "region": "Torso",
+      "label": "Hinge 0 1 / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_HingePin_0_1.R",
+      "region": "Torso",
+      "label": "HingePin 0 1 / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_Finger_0_2.R",
+      "region": "Right arm",
+      "label": "Finger 0 2 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Dorsal_0_2.R",
+      "region": "Right arm",
+      "label": "Dorsal 0 2 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_MCP_1.R",
+      "region": "Right arm",
+      "label": "MCP 1 / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_KnuckleGold_1.R",
+      "region": "Right arm",
+      "label": "KnuckleGold 1 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Finger_1_0.R",
+      "region": "Right arm",
+      "label": "Finger 1 0 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Dorsal_1_0.R",
+      "region": "Right arm",
+      "label": "Dorsal 1 0 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Hinge_1_0.R",
+      "region": "Torso",
+      "label": "Hinge 1 0 / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_HingePin_1_0.R",
+      "region": "Torso",
+      "label": "HingePin 1 0 / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_Finger_1_1.R",
+      "region": "Right arm",
+      "label": "Finger 1 1 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Dorsal_1_1.R",
+      "region": "Right arm",
+      "label": "Dorsal 1 1 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Hinge_1_1.R",
+      "region": "Torso",
+      "label": "Hinge 1 1 / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_HingePin_1_1.R",
+      "region": "Torso",
+      "label": "HingePin 1 1 / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_Finger_1_2.R",
+      "region": "Right arm",
+      "label": "Finger 1 2 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Dorsal_1_2.R",
+      "region": "Right arm",
+      "label": "Dorsal 1 2 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_MCP_2.R",
+      "region": "Right arm",
+      "label": "MCP 2 / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_KnuckleGold_2.R",
+      "region": "Right arm",
+      "label": "KnuckleGold 2 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Finger_2_0.R",
+      "region": "Right arm",
+      "label": "Finger 2 0 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Dorsal_2_0.R",
+      "region": "Right arm",
+      "label": "Dorsal 2 0 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Hinge_2_0.R",
+      "region": "Torso",
+      "label": "Hinge 2 0 / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_HingePin_2_0.R",
+      "region": "Torso",
+      "label": "HingePin 2 0 / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_Finger_2_1.R",
+      "region": "Right arm",
+      "label": "Finger 2 1 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Dorsal_2_1.R",
+      "region": "Right arm",
+      "label": "Dorsal 2 1 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Hinge_2_1.R",
+      "region": "Torso",
+      "label": "Hinge 2 1 / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_HingePin_2_1.R",
+      "region": "Torso",
+      "label": "HingePin 2 1 / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_Finger_2_2.R",
+      "region": "Right arm",
+      "label": "Finger 2 2 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Dorsal_2_2.R",
+      "region": "Right arm",
+      "label": "Dorsal 2 2 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_MCP_3.R",
+      "region": "Right arm",
+      "label": "MCP 3 / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_KnuckleGold_3.R",
+      "region": "Right arm",
+      "label": "KnuckleGold 3 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Finger_3_0.R",
+      "region": "Right arm",
+      "label": "Finger 3 0 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Dorsal_3_0.R",
+      "region": "Right arm",
+      "label": "Dorsal 3 0 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Hinge_3_0.R",
+      "region": "Torso",
+      "label": "Hinge 3 0 / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_HingePin_3_0.R",
+      "region": "Torso",
+      "label": "HingePin 3 0 / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_Finger_3_1.R",
+      "region": "Right arm",
+      "label": "Finger 3 1 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Dorsal_3_1.R",
+      "region": "Right arm",
+      "label": "Dorsal 3 1 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Hinge_3_1.R",
+      "region": "Torso",
+      "label": "Hinge 3 1 / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_HingePin_3_1.R",
+      "region": "Torso",
+      "label": "HingePin 3 1 / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_Finger_3_2.R",
+      "region": "Right arm",
+      "label": "Finger 3 2 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_Dorsal_3_2.R",
+      "region": "Right arm",
+      "label": "Dorsal 3 2 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_ThumbSocket.R",
+      "region": "Right arm",
+      "label": "ThumbSocket / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_Thumb_0.R",
+      "region": "Right arm",
+      "label": "Thumb 0 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_ThumbJoint_0.R",
+      "region": "Right arm",
+      "label": "ThumbJoint 0 / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_Thumb_1.R",
+      "region": "Right arm",
+      "label": "Thumb 1 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_ThumbJoint_1.R",
+      "region": "Right arm",
+      "label": "ThumbJoint 1 / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Ref_Thumb_2.R",
+      "region": "Right arm",
+      "label": "Thumb 2 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref_ThumbRootArmor.R",
+      "region": "Right arm",
+      "label": "ThumbRootArmor / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Shoulder_Connector_Axle.L",
+      "region": "Left arm",
+      "label": "Shoulder Connector Axle / left",
+      "sourcePolygons": 434
+    },
+    {
+      "sourceName": "Shoulder_TorsoSocket.L",
+      "region": "Left arm",
+      "label": "Shoulder TorsoSocket / left",
+      "sourcePolygons": 434
+    },
+    {
+      "sourceName": "Shoulder_SocketLip.L",
+      "region": "Left arm",
+      "label": "Shoulder SocketLip / left",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Shoulder_GoldBearing.L",
+      "region": "Left arm",
+      "label": "Shoulder GoldBearing / left",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Shoulder_BearingSleeve.L",
+      "region": "Left arm",
+      "label": "Shoulder BearingSleeve / left",
+      "sourcePolygons": 434
+    },
+    {
+      "sourceName": "Shoulder_Bellows_0.L",
+      "region": "Left arm",
+      "label": "Shoulder Bellows 0 / left",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Shoulder_Bellows_1.L",
+      "region": "Left arm",
+      "label": "Shoulder Bellows 1 / left",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Shoulder_Bellows_2.L",
+      "region": "Left arm",
+      "label": "Shoulder Bellows 2 / left",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Shoulder_Bellows_3.L",
+      "region": "Left arm",
+      "label": "Shoulder Bellows 3 / left",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Shoulder_ArmBearing.L",
+      "region": "Left arm",
+      "label": "Shoulder ArmBearing / left",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Shoulder_ArmGoldTrim.L",
+      "region": "Left arm",
+      "label": "Shoulder ArmGoldTrim / left",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Shoulder_UpperArmYoke.L",
+      "region": "Left arm",
+      "label": "Shoulder UpperArmYoke / left",
+      "sourcePolygons": 434
+    },
+    {
+      "sourceName": "Shoulder_SocketBolt_0.L",
+      "region": "Left arm",
+      "label": "Shoulder SocketBolt 0 / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Shoulder_SocketBolt_1.L",
+      "region": "Left arm",
+      "label": "Shoulder SocketBolt 1 / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Shoulder_SocketBolt_2.L",
+      "region": "Left arm",
+      "label": "Shoulder SocketBolt 2 / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Shoulder_SocketBolt_3.L",
+      "region": "Left arm",
+      "label": "Shoulder SocketBolt 3 / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Shoulder_Connector_Axle.R",
+      "region": "Right arm",
+      "label": "Shoulder Connector Axle / right",
+      "sourcePolygons": 434
+    },
+    {
+      "sourceName": "Shoulder_TorsoSocket.R",
+      "region": "Right arm",
+      "label": "Shoulder TorsoSocket / right",
+      "sourcePolygons": 434
+    },
+    {
+      "sourceName": "Shoulder_SocketLip.R",
+      "region": "Right arm",
+      "label": "Shoulder SocketLip / right",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Shoulder_GoldBearing.R",
+      "region": "Right arm",
+      "label": "Shoulder GoldBearing / right",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Shoulder_BearingSleeve.R",
+      "region": "Right arm",
+      "label": "Shoulder BearingSleeve / right",
+      "sourcePolygons": 434
+    },
+    {
+      "sourceName": "Shoulder_Bellows_0.R",
+      "region": "Right arm",
+      "label": "Shoulder Bellows 0 / right",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Shoulder_Bellows_1.R",
+      "region": "Right arm",
+      "label": "Shoulder Bellows 1 / right",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Shoulder_Bellows_2.R",
+      "region": "Right arm",
+      "label": "Shoulder Bellows 2 / right",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Shoulder_Bellows_3.R",
+      "region": "Right arm",
+      "label": "Shoulder Bellows 3 / right",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Shoulder_ArmBearing.R",
+      "region": "Right arm",
+      "label": "Shoulder ArmBearing / right",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Shoulder_ArmGoldTrim.R",
+      "region": "Right arm",
+      "label": "Shoulder ArmGoldTrim / right",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Shoulder_UpperArmYoke.R",
+      "region": "Right arm",
+      "label": "Shoulder UpperArmYoke / right",
+      "sourcePolygons": 434
+    },
+    {
+      "sourceName": "Shoulder_SocketBolt_0.R",
+      "region": "Right arm",
+      "label": "Shoulder SocketBolt 0 / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Shoulder_SocketBolt_1.R",
+      "region": "Right arm",
+      "label": "Shoulder SocketBolt 1 / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Shoulder_SocketBolt_2.R",
+      "region": "Right arm",
+      "label": "Shoulder SocketBolt 2 / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Shoulder_SocketBolt_3.R",
+      "region": "Right arm",
+      "label": "Shoulder SocketBolt 3 / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Pelvis_InternalChassis",
+      "region": "Pelvis",
+      "label": "InternalChassis",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Pelvis_WaistCoupler",
+      "region": "Pelvis",
+      "label": "WaistCoupler",
+      "sourcePolygons": 434
+    },
+    {
+      "sourceName": "Pelvis_ContinuousHipAxle",
+      "region": "Pelvis",
+      "label": "ContinuousHipAxle",
+      "sourcePolygons": 434
+    },
+    {
+      "sourceName": "Pelvis_ShieldBacking",
+      "region": "Pelvis",
+      "label": "ShieldBacking",
+      "sourcePolygons": 168
+    },
+    {
+      "sourceName": "Pelvis_CenterShield",
+      "region": "Pelvis",
+      "label": "CenterShield",
+      "sourcePolygons": 168
+    },
+    {
+      "sourceName": "Pelvis_ShieldUpperInset",
+      "region": "Pelvis",
+      "label": "ShieldUpperInset",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Pelvis_ShieldGoldTip",
+      "region": "Pelvis",
+      "label": "ShieldGoldTip",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Hip_InnerSocket.L",
+      "region": "Pelvis",
+      "label": "Hip InnerSocket / left",
+      "sourcePolygons": 434
+    },
+    {
+      "sourceName": "Hip_InnerGoldBearing.L",
+      "region": "Pelvis",
+      "label": "Hip InnerGoldBearing / left",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Hip_BearingRib_0.L",
+      "region": "Pelvis",
+      "label": "Hip BearingRib 0 / left",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Hip_BearingRib_1.L",
+      "region": "Pelvis",
+      "label": "Hip BearingRib 1 / left",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Hip_BearingRib_2.L",
+      "region": "Pelvis",
+      "label": "Hip BearingRib 2 / left",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Hip_ThighYoke.L",
+      "region": "Left leg",
+      "label": "Hip ThighYoke / left",
+      "sourcePolygons": 434
+    },
+    {
+      "sourceName": "Hip_UpperArmor.L",
+      "region": "Left arm",
+      "label": "Hip UpperArmor / left",
+      "sourcePolygons": 205
+    },
+    {
+      "sourceName": "Hip_GoldInset.L",
+      "region": "Pelvis",
+      "label": "Hip GoldInset / left",
+      "sourcePolygons": 131
+    },
+    {
+      "sourceName": "Pelvis_DiagonalBrace.L",
+      "region": "Pelvis",
+      "label": "DiagonalBrace / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Hip_BraceBolt.L",
+      "region": "Pelvis",
+      "label": "Hip BraceBolt / left",
+      "sourcePolygons": 434
+    },
+    {
+      "sourceName": "Hip_InnerSocket.R",
+      "region": "Pelvis",
+      "label": "Hip InnerSocket / right",
+      "sourcePolygons": 434
+    },
+    {
+      "sourceName": "Hip_InnerGoldBearing.R",
+      "region": "Pelvis",
+      "label": "Hip InnerGoldBearing / right",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Hip_BearingRib_0.R",
+      "region": "Pelvis",
+      "label": "Hip BearingRib 0 / right",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Hip_BearingRib_1.R",
+      "region": "Pelvis",
+      "label": "Hip BearingRib 1 / right",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Hip_BearingRib_2.R",
+      "region": "Pelvis",
+      "label": "Hip BearingRib 2 / right",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Hip_ThighYoke.R",
+      "region": "Right leg",
+      "label": "Hip ThighYoke / right",
+      "sourcePolygons": 434
+    },
+    {
+      "sourceName": "Hip_UpperArmor.R",
+      "region": "Right arm",
+      "label": "Hip UpperArmor / right",
+      "sourcePolygons": 205
+    },
+    {
+      "sourceName": "Hip_GoldInset.R",
+      "region": "Pelvis",
+      "label": "Hip GoldInset / right",
+      "sourcePolygons": 131
+    },
+    {
+      "sourceName": "Pelvis_DiagonalBrace.R",
+      "region": "Pelvis",
+      "label": "DiagonalBrace / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Hip_BraceBolt.R",
+      "region": "Pelvis",
+      "label": "Hip BraceBolt / right",
+      "sourcePolygons": 434
+    },
+    {
+      "sourceName": "Arm_BicepPiston.L",
+      "region": "Left arm",
+      "label": "BicepPiston / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Arm_BicepPistonRod.L",
+      "region": "Left arm",
+      "label": "BicepPistonRod / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Arm_BicepPivot.L",
+      "region": "Left arm",
+      "label": "BicepPivot / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Arm_ForearmShell.L",
+      "region": "Left arm",
+      "label": "ForearmShell / left",
+      "sourcePolygons": 478
+    },
+    {
+      "sourceName": "Arm_BicepPiston.R",
+      "region": "Right arm",
+      "label": "BicepPiston / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Arm_BicepPistonRod.R",
+      "region": "Right arm",
+      "label": "BicepPistonRod / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Arm_BicepPivot.R",
+      "region": "Right arm",
+      "label": "BicepPivot / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Arm_ForearmShell.R",
+      "region": "Right arm",
+      "label": "ForearmShell / right",
+      "sourcePolygons": 478
+    },
+    {
+      "sourceName": "Torso_ArmoredChassis",
+      "region": "Torso",
+      "label": "ArmoredChassis",
+      "sourcePolygons": 450
+    },
+    {
+      "sourceName": "Torso_SideActuator.L",
+      "region": "Torso",
+      "label": "SideActuator / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Torso_SidePiston.L",
+      "region": "Torso",
+      "label": "SidePiston / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Torso_SideActuator.R",
+      "region": "Torso",
+      "label": "SideActuator / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Torso_SidePiston.R",
+      "region": "Torso",
+      "label": "SidePiston / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Torso_AbdominalVertebra_0",
+      "region": "Torso",
+      "label": "AbdominalVertebra 0",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Torso_AbdominalInset_0",
+      "region": "Torso",
+      "label": "AbdominalInset 0",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Torso_AbdominalVertebra_1",
+      "region": "Torso",
+      "label": "AbdominalVertebra 1",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Torso_AbdominalInset_1",
+      "region": "Torso",
+      "label": "AbdominalInset 1",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Torso_AbdominalVertebra_2",
+      "region": "Torso",
+      "label": "AbdominalVertebra 2",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Torso_AbdominalInset_2",
+      "region": "Torso",
+      "label": "AbdominalInset 2",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Leg_KneeRecess.L",
+      "region": "Left leg",
+      "label": "KneeRecess / left",
+      "sourcePolygons": 187
+    },
+    {
+      "sourceName": "Leg_KneeRecess.R",
+      "region": "Right leg",
+      "label": "KneeRecess / right",
+      "sourcePolygons": 187
+    },
+    {
+      "sourceName": "Preview_KneeBall.L",
+      "region": "Left leg",
+      "label": "KneeBall / left",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Preview_KneeBearing.L",
+      "region": "Left leg",
+      "label": "KneeBearing / left",
+      "sourcePolygons": 434
+    },
+    {
+      "sourceName": "Preview_KneeTrim.L",
+      "region": "Left leg",
+      "label": "KneeTrim / left",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Preview_KneeCenter.L",
+      "region": "Left leg",
+      "label": "KneeCenter / left",
+      "sourcePolygons": 434
+    },
+    {
+      "sourceName": "Preview_KneeLight.L",
+      "region": "Left leg",
+      "label": "KneeLight / left",
+      "sourcePolygons": 434
+    },
+    {
+      "sourceName": "Preview_ShinInner.L",
+      "region": "Left leg",
+      "label": "ShinInner / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Preview_AnkleSocket.L",
+      "region": "Left leg",
+      "label": "AnkleSocket / left",
+      "sourcePolygons": 434
+    },
+    {
+      "sourceName": "Preview_AnkleCap.L",
+      "region": "Left leg",
+      "label": "AnkleCap / left",
+      "sourcePolygons": 434
+    },
+    {
+      "sourceName": "Preview_AnkleTrim.L",
+      "region": "Left leg",
+      "label": "AnkleTrim / left",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Preview_KneeBall.R",
+      "region": "Right leg",
+      "label": "KneeBall / right",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Preview_KneeBearing.R",
+      "region": "Right leg",
+      "label": "KneeBearing / right",
+      "sourcePolygons": 434
+    },
+    {
+      "sourceName": "Preview_KneeTrim.R",
+      "region": "Right leg",
+      "label": "KneeTrim / right",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Preview_KneeCenter.R",
+      "region": "Right leg",
+      "label": "KneeCenter / right",
+      "sourcePolygons": 434
+    },
+    {
+      "sourceName": "Preview_KneeLight.R",
+      "region": "Right leg",
+      "label": "KneeLight / right",
+      "sourcePolygons": 434
+    },
+    {
+      "sourceName": "Preview_ShinInner.R",
+      "region": "Right leg",
+      "label": "ShinInner / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Preview_AnkleSocket.R",
+      "region": "Right leg",
+      "label": "AnkleSocket / right",
+      "sourcePolygons": 434
+    },
+    {
+      "sourceName": "Preview_AnkleCap.R",
+      "region": "Right leg",
+      "label": "AnkleCap / right",
+      "sourcePolygons": 434
+    },
+    {
+      "sourceName": "Preview_AnkleTrim.R",
+      "region": "Right leg",
+      "label": "AnkleTrim / right",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "RefHead_EarMount.L",
+      "region": "Head",
+      "label": "EarMount / left",
+      "sourcePolygons": 578
+    },
+    {
+      "sourceName": "RefHead_EarShell.L",
+      "region": "Head",
+      "label": "EarShell / left",
+      "sourcePolygons": 578
+    },
+    {
+      "sourceName": "RefHead_EarGold.L",
+      "region": "Head",
+      "label": "EarGold / left",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "RefHead_EarInset.L",
+      "region": "Head",
+      "label": "EarInset / left",
+      "sourcePolygons": 578
+    },
+    {
+      "sourceName": "RefHead_EarLight.L",
+      "region": "Head",
+      "label": "EarLight / left",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "RefHead_EarCenter.L",
+      "region": "Head",
+      "label": "EarCenter / left",
+      "sourcePolygons": 578
+    },
+    {
+      "sourceName": "RefHead_AntennaRoot.L",
+      "region": "Head",
+      "label": "AntennaRoot / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "RefHead_Antenna.L",
+      "region": "Head",
+      "label": "Antenna / left",
+      "sourcePolygons": 168
+    },
+    {
+      "sourceName": "RefHead_AntennaInset.L",
+      "region": "Head",
+      "label": "AntennaInset / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "RefHead_AntennaLight.L",
+      "region": "Head",
+      "label": "AntennaLight / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "RefHead_EarMount.R",
+      "region": "Head",
+      "label": "EarMount / right",
+      "sourcePolygons": 578
+    },
+    {
+      "sourceName": "RefHead_EarShell.R",
+      "region": "Head",
+      "label": "EarShell / right",
+      "sourcePolygons": 578
+    },
+    {
+      "sourceName": "RefHead_EarGold.R",
+      "region": "Head",
+      "label": "EarGold / right",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "RefHead_EarInset.R",
+      "region": "Head",
+      "label": "EarInset / right",
+      "sourcePolygons": 578
+    },
+    {
+      "sourceName": "RefHead_EarLight.R",
+      "region": "Head",
+      "label": "EarLight / right",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "RefHead_EarCenter.R",
+      "region": "Head",
+      "label": "EarCenter / right",
+      "sourcePolygons": 578
+    },
+    {
+      "sourceName": "RefHead_AntennaRoot.R",
+      "region": "Head",
+      "label": "AntennaRoot / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "RefHead_Antenna.R",
+      "region": "Head",
+      "label": "Antenna / right",
+      "sourcePolygons": 168
+    },
+    {
+      "sourceName": "RefHead_AntennaInset.R",
+      "region": "Head",
+      "label": "AntennaInset / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "RefHead_AntennaLight.R",
+      "region": "Head",
+      "label": "AntennaLight / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Head_AntennaSeat.L",
+      "region": "Head",
+      "label": "AntennaSeat / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Head_RearVentHousing.L",
+      "region": "Head",
+      "label": "RearVentHousing / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Head_RearVent_0.L",
+      "region": "Head",
+      "label": "RearVent 0 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Head_RearVent_1.L",
+      "region": "Head",
+      "label": "RearVent 1 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Head_RearVent_2.L",
+      "region": "Head",
+      "label": "RearVent 2 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Head_AntennaSeat.R",
+      "region": "Head",
+      "label": "AntennaSeat / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Head_RearVentHousing.R",
+      "region": "Head",
+      "label": "RearVentHousing / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Head_RearVent_0.R",
+      "region": "Head",
+      "label": "RearVent 0 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Head_RearVent_1.R",
+      "region": "Head",
+      "label": "RearVent 1 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Head_RearVent_2.R",
+      "region": "Head",
+      "label": "RearVent 2 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Head_RearStatus",
+      "region": "Head",
+      "label": "RearStatus",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Head_EmbeddedNeckSocket",
+      "region": "Head",
+      "label": "EmbeddedNeckSocket",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Final_BackSpine_0",
+      "region": "Torso",
+      "label": "BackSpine 0",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Final_BackSpine_1",
+      "region": "Torso",
+      "label": "BackSpine 1",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Final_BackSpine_2",
+      "region": "Torso",
+      "label": "BackSpine 2",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Final_BackSpine_3",
+      "region": "Torso",
+      "label": "BackSpine 3",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Final_BackStatus",
+      "region": "Torso",
+      "label": "BackStatus",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Target_ThighJacket.L",
+      "region": "Left leg",
+      "label": "ThighJacket / left",
+      "sourcePolygons": 3520
+    },
+    {
+      "sourceName": "Target_ThighJacket.R",
+      "region": "Right leg",
+      "label": "ThighJacket / right",
+      "sourcePolygons": 3520
+    },
+    {
+      "sourceName": "Target_BackShell.L",
+      "region": "Torso",
+      "label": "BackShell / left",
+      "sourcePolygons": 196
+    },
+    {
+      "sourceName": "Target_RearHipArmor.L",
+      "region": "Pelvis",
+      "label": "RearHipArmor / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Target_BackShell.R",
+      "region": "Torso",
+      "label": "BackShell / right",
+      "sourcePolygons": 196
+    },
+    {
+      "sourceName": "Target_RearHipArmor.R",
+      "region": "Pelvis",
+      "label": "RearHipArmor / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Target_ThighInnerFrame.L",
+      "region": "Left leg",
+      "label": "ThighInnerFrame / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Target_ContouredSole.L",
+      "region": "Torso",
+      "label": "ContouredSole / left",
+      "sourcePolygons": 316
+    },
+    {
+      "sourceName": "Target_HeelHousing.L",
+      "region": "Torso",
+      "label": "HeelHousing / left",
+      "sourcePolygons": 514
+    },
+    {
+      "sourceName": "Target_FittedToe_0.L",
+      "region": "Left leg",
+      "label": "FittedToe 0 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Target_ToeGold_0.L",
+      "region": "Left leg",
+      "label": "ToeGold 0 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Target_FittedToe_1.L",
+      "region": "Left leg",
+      "label": "FittedToe 1 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Target_ToeGold_1.L",
+      "region": "Left leg",
+      "label": "ToeGold 1 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Target_FittedToe_2.L",
+      "region": "Left leg",
+      "label": "FittedToe 2 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Target_ToeGold_2.L",
+      "region": "Left leg",
+      "label": "ToeGold 2 / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Target_InstepGuard.L",
+      "region": "Torso",
+      "label": "InstepGuard / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Target_ThighInnerFrame.R",
+      "region": "Right leg",
+      "label": "ThighInnerFrame / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Target_ContouredSole.R",
+      "region": "Torso",
+      "label": "ContouredSole / right",
+      "sourcePolygons": 316
+    },
+    {
+      "sourceName": "Target_HeelHousing.R",
+      "region": "Torso",
+      "label": "HeelHousing / right",
+      "sourcePolygons": 514
+    },
+    {
+      "sourceName": "Target_FittedToe_0.R",
+      "region": "Right leg",
+      "label": "FittedToe 0 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Target_ToeGold_0.R",
+      "region": "Right leg",
+      "label": "ToeGold 0 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Target_FittedToe_1.R",
+      "region": "Right leg",
+      "label": "FittedToe 1 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Target_ToeGold_1.R",
+      "region": "Right leg",
+      "label": "ToeGold 1 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Target_FittedToe_2.R",
+      "region": "Right leg",
+      "label": "FittedToe 2 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Target_ToeGold_2.R",
+      "region": "Right leg",
+      "label": "ToeGold 2 / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Target_InstepGuard.R",
+      "region": "Torso",
+      "label": "InstepGuard / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref16_CrownVent",
+      "region": "Head",
+      "label": "CrownVent",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref16_CompoundChestShell",
+      "region": "Torso",
+      "label": "CompoundChestShell",
+      "sourcePolygons": 4088
+    },
+    {
+      "sourceName": "Ref16_Eye.L",
+      "region": "Head",
+      "label": "Eye / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref16_CheekGuard.L",
+      "region": "Head",
+      "label": "CheekGuard / left",
+      "sourcePolygons": 187
+    },
+    {
+      "sourceName": "Ref16_CheekGold.L",
+      "region": "Head",
+      "label": "CheekGold / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref16_JawCenter.L",
+      "region": "Head",
+      "label": "JawCenter / left",
+      "sourcePolygons": 187
+    },
+    {
+      "sourceName": "Ref16_ChestGold.L",
+      "region": "Torso",
+      "label": "ChestGold / left",
+      "sourcePolygons": 159
+    },
+    {
+      "sourceName": "Ref16_ChestPanelLine.L",
+      "region": "Torso",
+      "label": "ChestPanelLine / left",
+      "sourcePolygons": 30
+    },
+    {
+      "sourceName": "Ref16_SculptedPauldron.L",
+      "region": "Left arm",
+      "label": "SculptedPauldron / left",
+      "sourcePolygons": 2720
+    },
+    {
+      "sourceName": "Ref16_ShoulderGoldInlay.L",
+      "region": "Left arm",
+      "label": "ShoulderGoldInlay / left",
+      "sourcePolygons": 170
+    },
+    {
+      "sourceName": "Ref16_NotchedCalfArmor.L",
+      "region": "Left leg",
+      "label": "NotchedCalfArmor / left",
+      "sourcePolygons": 2023
+    },
+    {
+      "sourceName": "Ref16_LowerShinActuator.L",
+      "region": "Left leg",
+      "label": "LowerShinActuator / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref16_LowerShinRod.L",
+      "region": "Left leg",
+      "label": "LowerShinRod / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref16_KneeActuator.L",
+      "region": "Left leg",
+      "label": "KneeActuator / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref16_KneeRod.L",
+      "region": "Left leg",
+      "label": "KneeRod / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref16_KneeCap.L",
+      "region": "Left leg",
+      "label": "KneeCap / left",
+      "sourcePolygons": 224
+    },
+    {
+      "sourceName": "Ref16_CalfPanelBreak.L",
+      "region": "Left leg",
+      "label": "CalfPanelBreak / left",
+      "sourcePolygons": 240
+    },
+    {
+      "sourceName": "Ref16_ThighGold.L",
+      "region": "Left leg",
+      "label": "ThighGold / left",
+      "sourcePolygons": 187
+    },
+    {
+      "sourceName": "Ref16_AnkleFork.L",
+      "region": "Left leg",
+      "label": "AnkleFork / left",
+      "sourcePolygons": 338
+    },
+    {
+      "sourceName": "Ref16_Eye.R",
+      "region": "Head",
+      "label": "Eye / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref16_CheekGuard.R",
+      "region": "Head",
+      "label": "CheekGuard / right",
+      "sourcePolygons": 187
+    },
+    {
+      "sourceName": "Ref16_CheekGold.R",
+      "region": "Head",
+      "label": "CheekGold / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref16_JawCenter.R",
+      "region": "Head",
+      "label": "JawCenter / right",
+      "sourcePolygons": 187
+    },
+    {
+      "sourceName": "Ref16_ChestGold.R",
+      "region": "Torso",
+      "label": "ChestGold / right",
+      "sourcePolygons": 159
+    },
+    {
+      "sourceName": "Ref16_ChestPanelLine.R",
+      "region": "Torso",
+      "label": "ChestPanelLine / right",
+      "sourcePolygons": 30
+    },
+    {
+      "sourceName": "Ref16_SculptedPauldron.R",
+      "region": "Right arm",
+      "label": "SculptedPauldron / right",
+      "sourcePolygons": 2720
+    },
+    {
+      "sourceName": "Ref16_ShoulderGoldInlay.R",
+      "region": "Right arm",
+      "label": "ShoulderGoldInlay / right",
+      "sourcePolygons": 170
+    },
+    {
+      "sourceName": "Ref16_NotchedCalfArmor.R",
+      "region": "Right leg",
+      "label": "NotchedCalfArmor / right",
+      "sourcePolygons": 2023
+    },
+    {
+      "sourceName": "Ref16_LowerShinActuator.R",
+      "region": "Right leg",
+      "label": "LowerShinActuator / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref16_LowerShinRod.R",
+      "region": "Right leg",
+      "label": "LowerShinRod / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref16_KneeActuator.R",
+      "region": "Right leg",
+      "label": "KneeActuator / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref16_KneeRod.R",
+      "region": "Right leg",
+      "label": "KneeRod / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Ref16_KneeCap.R",
+      "region": "Right leg",
+      "label": "KneeCap / right",
+      "sourcePolygons": 224
+    },
+    {
+      "sourceName": "Ref16_CalfPanelBreak.R",
+      "region": "Right leg",
+      "label": "CalfPanelBreak / right",
+      "sourcePolygons": 240
+    },
+    {
+      "sourceName": "Ref16_ThighGold.R",
+      "region": "Right leg",
+      "label": "ThighGold / right",
+      "sourcePolygons": 187
+    },
+    {
+      "sourceName": "Ref16_AnkleFork.R",
+      "region": "Right leg",
+      "label": "AnkleFork / right",
+      "sourcePolygons": 338
+    },
+    {
+      "sourceName": "Ref16_ThroatArmorRim",
+      "region": "Torso",
+      "label": "ThroatArmorRim",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Ref16_ThighArmorSplit.L",
+      "region": "Left leg",
+      "label": "ThighArmorSplit / left",
+      "sourcePolygons": 50
+    },
+    {
+      "sourceName": "Ref16_ThighInsetGold.L",
+      "region": "Left leg",
+      "label": "ThighInsetGold / left",
+      "sourcePolygons": 20
+    },
+    {
+      "sourceName": "Ref16_ThighArmorSplit.R",
+      "region": "Right leg",
+      "label": "ThighArmorSplit / right",
+      "sourcePolygons": 50
+    },
+    {
+      "sourceName": "Ref16_ThighInsetGold.R",
+      "region": "Right leg",
+      "label": "ThighInsetGold / right",
+      "sourcePolygons": 20
+    },
+    {
+      "sourceName": "Finish_ShoulderAxle.L",
+      "region": "Left arm",
+      "label": "ShoulderAxle / left",
+      "sourcePolygons": 578
+    },
+    {
+      "sourceName": "Finish_ShoulderSocket.L",
+      "region": "Left arm",
+      "label": "ShoulderSocket / left",
+      "sourcePolygons": 578
+    },
+    {
+      "sourceName": "Finish_ShoulderBearingRim.L",
+      "region": "Left arm",
+      "label": "ShoulderBearingRim / left",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Finish_ShoulderBearingInset.L",
+      "region": "Left arm",
+      "label": "ShoulderBearingInset / left",
+      "sourcePolygons": 578
+    },
+    {
+      "sourceName": "Finish_ShoulderInnerBezel.L",
+      "region": "Left arm",
+      "label": "ShoulderInnerBezel / left",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Finish_ShoulderAxle.R",
+      "region": "Right arm",
+      "label": "ShoulderAxle / right",
+      "sourcePolygons": 578
+    },
+    {
+      "sourceName": "Finish_ShoulderSocket.R",
+      "region": "Right arm",
+      "label": "ShoulderSocket / right",
+      "sourcePolygons": 578
+    },
+    {
+      "sourceName": "Finish_ShoulderBearingRim.R",
+      "region": "Right arm",
+      "label": "ShoulderBearingRim / right",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Finish_ShoulderBearingInset.R",
+      "region": "Right arm",
+      "label": "ShoulderBearingInset / right",
+      "sourcePolygons": 578
+    },
+    {
+      "sourceName": "Finish_ShoulderInnerBezel.R",
+      "region": "Right arm",
+      "label": "ShoulderInnerBezel / right",
+      "sourcePolygons": 960
+    },
+    {
+      "sourceName": "Finish_QuadHelmetHousing",
+      "region": "Head",
+      "label": "QuadHelmetHousing",
+      "sourcePolygons": 18688
+    },
+    {
+      "sourceName": "Finish_QuadBrowJawSurround",
+      "region": "Head",
+      "label": "QuadBrowJawSurround",
+      "sourcePolygons": 1152
+    },
+    {
+      "sourceName": "Finish_QuadCurvedVisor",
+      "region": "Head",
+      "label": "QuadCurvedVisor",
+      "sourcePolygons": 1024
+    },
+    {
+      "sourceName": "Attach_ReactorIntegratedBezel",
+      "region": "Torso",
+      "label": "ReactorIntegratedBezel",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Attach_ReactorMount",
+      "region": "Torso",
+      "label": "ReactorMount",
+      "sourcePolygons": 113
+    },
+    {
+      "sourceName": "Attach_ReactorRecessedLens",
+      "region": "Torso",
+      "label": "ReactorRecessedLens",
+      "sourcePolygons": 113
+    },
+    {
+      "sourceName": "Attach_AbdomenStructuralBridge",
+      "region": "Torso",
+      "label": "AbdomenStructuralBridge",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Attach_PelvisShieldMount",
+      "region": "Pelvis",
+      "label": "PelvisShieldMount",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Attach_UpperArmInnerSpar.L",
+      "region": "Left arm",
+      "label": "UpperArmInnerSpar / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Attach_CleanUpperArmSleeve.L",
+      "region": "Left arm",
+      "label": "CleanUpperArmSleeve / left",
+      "sourcePolygons": 1008
+    },
+    {
+      "sourceName": "Attach_UpperArmInnerSpar.R",
+      "region": "Right arm",
+      "label": "UpperArmInnerSpar / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Attach_CleanUpperArmSleeve.R",
+      "region": "Right arm",
+      "label": "CleanUpperArmSleeve / right",
+      "sourcePolygons": 1008
+    },
+    {
+      "sourceName": "Attach_ConformingForearmPanel.L",
+      "region": "Left arm",
+      "label": "ConformingForearmPanel / left",
+      "sourcePolygons": 216
+    },
+    {
+      "sourceName": "Attach_ForearmBolt_0.L",
+      "region": "Left arm",
+      "label": "ForearmBolt 0 / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Attach_ForearmBolt_1.L",
+      "region": "Left arm",
+      "label": "ForearmBolt 1 / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Attach_ForearmStatusHousing.L",
+      "region": "Left arm",
+      "label": "ForearmStatusHousing / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Attach_ForearmStatusLens.L",
+      "region": "Left arm",
+      "label": "ForearmStatusLens / left",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Attach_ConformingForearmPanel.R",
+      "region": "Right arm",
+      "label": "ConformingForearmPanel / right",
+      "sourcePolygons": 216
+    },
+    {
+      "sourceName": "Attach_ForearmBolt_0.R",
+      "region": "Right arm",
+      "label": "ForearmBolt 0 / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Attach_ForearmBolt_1.R",
+      "region": "Right arm",
+      "label": "ForearmBolt 1 / right",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Attach_ForearmStatusHousing.R",
+      "region": "Right arm",
+      "label": "ForearmStatusHousing / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Attach_ForearmStatusLens.R",
+      "region": "Right arm",
+      "label": "ForearmStatusLens / right",
+      "sourcePolygons": 150
+    },
+    {
+      "sourceName": "Attach_ChestBolt.L",
+      "region": "Torso",
+      "label": "ChestBolt / left",
+      "sourcePolygons": 290
+    },
+    {
+      "sourceName": "Attach_ChestBolt.R",
+      "region": "Torso",
+      "label": "ChestBolt / right",
+      "sourcePolygons": 290
+    }
+  ]
+}

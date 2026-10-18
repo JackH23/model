@@ -4,7 +4,7 @@ from mathutils import Vector
 H={};exec(compile(Path(r'D:\codex+blender\my-first-project\scripts\phase1_robot_blockout.py').read_text(),'helpers','exec'),H)
 C=H['collection']('PH15_Target_Shape_Rebuild');M=H['mats']()
 if len(C.objects):raise RuntimeError('Rebuild already applied')
-OUT=Path(r'D:\codex+blender\model\target_rebuild_review');OUT.mkdir(exist_ok=True)
+OUT=Path(r'D:\codex+blender\model\robot\renders\reviews\target_rebuild_review');OUT.mkdir(exist_ok=True)
 def hide(o):o.hide_render=True;o.hide_set(True)
 def mesh(n,v,f,m='Ivory',bevel=0):return H['finish_mesh'](n,v,f,C,M[m],bevel=bevel,smooth=True)
 def box(n,p,s,m='Frame',b=.005):return H['box'](n,p,s,C,M[m],b)
@@ -145,5 +145,5 @@ for o in C.objects:
  if o.type=='MESH':
   bm=bmesh.new();bm.from_mesh(o.data);bmesh.ops.recalc_face_normals(bm,faces=list(bm.faces));bm.to_mesh(o.data);bm.free()
 bpy.context.view_layer.update()
-bpy.ops.wm.save_as_mainfile(filepath=str(OUT.parent/'robot_target_rebuilt.blend'))
+bpy.ops.wm.save_as_mainfile(filepath=str(Path('D:\\codex+blender\\model\\blender\\history\\robot_target_rebuilt.blend')))
 print('Saved target rebuild:',len(C.objects),'new objects. Ready for review.')

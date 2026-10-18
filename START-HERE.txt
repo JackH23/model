@@ -1,0 +1,11 @@
+PROJECT STRUCTURE
+
+robot/      Blender source, scripts, renders, reports and backups
+web-viewer/ Vite + Three.js interactive website
+
+Latest model:
+D:\codex+blender\model\robot\blender\current\robot_attachments_repaired.blend
+
+Run website:
+cd D:\codex+blender\model\web-viewer
+npm run dev

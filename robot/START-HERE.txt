@@ -1,0 +1,17 @@
+ROBO-JACK PROJECT
+
+blender/current/  Latest editable robot_attachments_repaired.blend
+blender/history/  Previous model revisions
+scripts/modeling/  Blender modeling scripts (review before rerunning)
+scripts/maintenance/  Historical project setup scripts
+renders/previews/  Saved individual renders
+renders/reviews/  Multiview review folders and validation results
+reports/  Audit records and organization maps
+backups/blender/  Preserved automatic Blender backups
+web-viewer/  Vite + Three.js interactive viewer
+
+Run website:
+  cd D:\codex+blender\model\web-viewer
+  npm run dev
+
+Historical scripts retain their original prerequisites. No Git commits or pushes were made during organization.

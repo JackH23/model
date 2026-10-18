@@ -79,5 +79,5 @@ for x in [-.057,.057]: box('Back_GoldRail_'+str(x),(x,.216,1.17),(.012,.025,.18)
 root=bpy.data.objects['Robot_Phase1']; root['scope']='Reference refinement: segmented armor, layered hubs, vents, fasteners and hand details'
 bpy.context.scene['phase']='Reference armor refinement'
 out=Path(r'D:\codex+blender\model')
-bpy.ops.wm.save_as_mainfile(filepath=str(out/'robot_reference_refined.blend'))
+bpy.ops.wm.save_as_mainfile(filepath=str(Path('D:\\codex+blender\\model\\blender\\history\\robot_reference_refined.blend')))
 print('Saved refined robot; detail objects:',len(C.objects))

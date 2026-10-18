@@ -50,9 +50,9 @@ bpy.context.view_layer.update()
 sc=bpy.context.scene;cam=sc.camera
 cam.location=(.7,-2,1.5);cam.rotation_euler=(Vector((0,0,1.15))-cam.location).to_track_quat('-Z','Y').to_euler();cam.data.ortho_scale=.66
 sc.render.resolution_x=1100;sc.render.resolution_y=1000
-sc.render.filepath=r'D:\codex+blender\model\torso_reference_detail.png';bpy.ops.render.render(write_still=True)
+sc.render.filepath=r'D:\codex+blender\model\robot\renders\previews\torso_reference_detail.png';bpy.ops.render.render(write_still=True)
 cam.location=(2.6,-4.5,2.5);cam.rotation_euler=(Vector((0,0,.91))-cam.location).to_track_quat('-Z','Y').to_euler();cam.data.ortho_scale=2.2
 sc.render.resolution_x=900;sc.render.resolution_y=1000
-sc.render.filepath=r'D:\codex+blender\model\torso_reference_full.png';bpy.ops.render.render(write_still=True)
-bpy.ops.wm.save_as_mainfile(filepath=r'D:\codex+blender\model\robot_torso_refined.blend')
+sc.render.filepath=r'D:\codex+blender\model\robot\renders\previews\torso_reference_full.png';bpy.ops.render.render(write_still=True)
+bpy.ops.wm.save_as_mainfile(filepath=r'D:\codex+blender\model\robot\blender\history\robot_torso_refined.blend')
 print('Saved layered torso, inset reactor, gold collar inserts, exposed side pistons and segmented abdomen.')

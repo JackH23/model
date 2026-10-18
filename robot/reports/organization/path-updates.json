@@ -1,0 +1,20 @@
+[
+  "scripts\\modeling\\complete_refinement.py",
+  "scripts\\modeling\\continue_robot.py",
+  "scripts\\modeling\\finish_head_shell.py",
+  "scripts\\modeling\\finish_shoulders_chest_helmet.py",
+  "scripts\\modeling\\fix_connections.py",
+  "scripts\\modeling\\fix_hips.py",
+  "scripts\\modeling\\fix_shoulders.py",
+  "scripts\\modeling\\game_studio_reference_pass.py",
+  "scripts\\modeling\\leg_shape_preview.py",
+  "scripts\\modeling\\reference_hands.py",
+  "scripts\\modeling\\refine_arms.py",
+  "scripts\\modeling\\refine_head.py",
+  "scripts\\modeling\\refine_legs.py",
+  "scripts\\modeling\\refine_torso.py",
+  "scripts\\modeling\\repair_floating_hardware.py",
+  "scripts\\modeling\\target_rebuild.py",
+  "scripts\\modeling\\target_rebuild_corrections.py",
+  "web-viewer\\README.md"
+]

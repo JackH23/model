@@ -80,5 +80,5 @@ render('leg_preview_side.png',(2,.015,.52),(.275,0,.36),.79)
 render('leg_preview_threequarter.png',(1.1,-1.8,.86),(.275,-.015,.37),.84)
 render('leg_preview_comparison.png',(0,-3,1.02),(0,0,.42),1.08,1100,1000)
 cam.location=(2.6,-4.5,2.5);cam.rotation_euler=(Vector((0,0,.91))-cam.location).to_track_quat('-Z','Y').to_euler();cam.data.ortho_scale=2.2
-bpy.ops.wm.save_as_mainfile(filepath=r'D:\codex+blender\model\robot_leg_shape_preview.blend')
+bpy.ops.wm.save_as_mainfile(filepath=r'D:\codex+blender\model\robot\blender\history\robot_leg_shape_preview.blend')
 print('Saved left-leg silhouette preview. Right leg and all earlier geometry preserved for comparison.')

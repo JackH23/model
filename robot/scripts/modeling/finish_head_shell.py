@@ -29,7 +29,7 @@ bpy.data.objects['RefHead_CrownInset'].location.z-=.012
 H['box']('Head_RearStatus',(0,.192,1.529),(.032,.012,.013),C,M['Cyan'],bevel=.003)
 bpy.context.view_layer.update()
 sc=bpy.context.scene;cam=sc.camera
-out=Path(r'D:\codex+blender\model\head_review');out.mkdir(exist_ok=True)
+out=Path(r'D:\codex+blender\model\robot\renders\reviews\head_review');out.mkdir(exist_ok=True)
 views={'front':(0,-3,1.56),'back':(0,3,1.56),'left':(3,0,1.56),'right':(-3,0,1.56),'front_threequarter':(1.6,-3,1.9),'back_threequarter':(-1.6,3,1.9),'top':(0,0,4),'underside':(0,-1,0)}
 for name,eye in views.items():
  target=Vector((0,0,1.565));cam.location=eye;cam.rotation_euler=(target-cam.location).to_track_quat('-Z','Y').to_euler();cam.data.ortho_scale=.71
@@ -46,5 +46,5 @@ im=bpy.data.images.new('Head_AllSides_Review',width=2600,height=1300,alpha=True)
 print('Contact sheet order: front, back, left, right / front three-quarter, back three-quarter, top, underside')
 cam.location=(2.6,-4.5,2.5);cam.rotation_euler=(Vector((0,0,.91))-cam.location).to_track_quat('-Z','Y').to_euler();cam.data.ortho_scale=2.2
 sc.render.resolution_x=900;sc.render.resolution_y=1000
-bpy.ops.wm.save_as_mainfile(filepath=r'D:\codex+blender\model\robot_head_shell_reviewed.blend')
+bpy.ops.wm.save_as_mainfile(filepath=r'D:\codex+blender\model\robot\blender\history\robot_head_shell_reviewed.blend')
 print('Continuous shell joins visor frame at Y=-0.170; roof, sidewalls, rear and antenna bases now connected.')

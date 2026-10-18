@@ -1,0 +1,387 @@
+[
+  {
+    "From": "D:\\codex+blender\\model\\assembly_finish_review",
+    "To": "D:\\codex+blender\\model\\renders\\reviews\\assembly_finish_review",
+    "Directory": true
+  },
+  {
+    "From": "D:\\codex+blender\\model\\attachment_repair_review",
+    "To": "D:\\codex+blender\\model\\renders\\reviews\\attachment_repair_review",
+    "Directory": true
+  },
+  {
+    "From": "D:\\codex+blender\\model\\final_review",
+    "To": "D:\\codex+blender\\model\\renders\\reviews\\final_review",
+    "Directory": true
+  },
+  {
+    "From": "D:\\codex+blender\\model\\head_review",
+    "To": "D:\\codex+blender\\model\\renders\\reviews\\head_review",
+    "Directory": true
+  },
+  {
+    "From": "D:\\codex+blender\\model\\reference_construction_review",
+    "To": "D:\\codex+blender\\model\\renders\\reviews\\reference_construction_review",
+    "Directory": true
+  },
+  {
+    "From": "D:\\codex+blender\\model\\target_rebuild_review",
+    "To": "D:\\codex+blender\\model\\renders\\reviews\\target_rebuild_review",
+    "Directory": true
+  },
+  {
+    "From": "D:\\codex+blender\\model\\arms_reference_detail.png",
+    "To": "D:\\codex+blender\\model\\renders\\previews\\arms_reference_detail.png",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\arms_reference_full.png",
+    "To": "D:\\codex+blender\\model\\renders\\previews\\arms_reference_full.png",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\complete_refinement.py",
+    "To": "D:\\codex+blender\\model\\scripts\\modeling\\complete_refinement.py",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\connections_fixed_full.png",
+    "To": "D:\\codex+blender\\model\\renders\\previews\\connections_fixed_full.png",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\continue_robot.py",
+    "To": "D:\\codex+blender\\model\\scripts\\modeling\\continue_robot.py",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\finish_head_shell.py",
+    "To": "D:\\codex+blender\\model\\scripts\\modeling\\finish_head_shell.py",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\finish_shoulders_chest_helmet.py",
+    "To": "D:\\codex+blender\\model\\scripts\\modeling\\finish_shoulders_chest_helmet.py",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\fix_connections.py",
+    "To": "D:\\codex+blender\\model\\scripts\\modeling\\fix_connections.py",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\fix_hips.py",
+    "To": "D:\\codex+blender\\model\\scripts\\modeling\\fix_hips.py",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\fix_shoulders.py",
+    "To": "D:\\codex+blender\\model\\scripts\\modeling\\fix_shoulders.py",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\game_studio_reference_pass.py",
+    "To": "D:\\codex+blender\\model\\scripts\\modeling\\game_studio_reference_pass.py",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\hand_fixed_detail.png",
+    "To": "D:\\codex+blender\\model\\renders\\previews\\hand_fixed_detail.png",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\hands_turned_detail.png",
+    "To": "D:\\codex+blender\\model\\renders\\previews\\hands_turned_detail.png",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\hands_turned_full.png",
+    "To": "D:\\codex+blender\\model\\renders\\previews\\hands_turned_full.png",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\head_reference_detail.png",
+    "To": "D:\\codex+blender\\model\\renders\\previews\\head_reference_detail.png",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\head_reference_full.png",
+    "To": "D:\\codex+blender\\model\\renders\\previews\\head_reference_full.png",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\hip_connections_detail.png",
+    "To": "D:\\codex+blender\\model\\renders\\previews\\hip_connections_detail.png",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\hip_connections_full.png",
+    "To": "D:\\codex+blender\\model\\renders\\previews\\hip_connections_full.png",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\leg_preview_comparison.png",
+    "To": "D:\\codex+blender\\model\\renders\\previews\\leg_preview_comparison.png",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\leg_preview_side.png",
+    "To": "D:\\codex+blender\\model\\renders\\previews\\leg_preview_side.png",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\leg_preview_threequarter.png",
+    "To": "D:\\codex+blender\\model\\renders\\previews\\leg_preview_threequarter.png",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\leg_shape_preview.py",
+    "To": "D:\\codex+blender\\model\\scripts\\modeling\\leg_shape_preview.py",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\legs_feet_reference_detail.png",
+    "To": "D:\\codex+blender\\model\\renders\\previews\\legs_feet_reference_detail.png",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\legs_feet_reference_full.png",
+    "To": "D:\\codex+blender\\model\\renders\\previews\\legs_feet_reference_full.png",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\legs_matched_front.png",
+    "To": "D:\\codex+blender\\model\\renders\\previews\\legs_matched_front.png",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\legs_matched_full.png",
+    "To": "D:\\codex+blender\\model\\renders\\previews\\legs_matched_full.png",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\neck_fixed_detail.png",
+    "To": "D:\\codex+blender\\model\\renders\\previews\\neck_fixed_detail.png",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\parent_git_audit_before.txt",
+    "To": "D:\\codex+blender\\model\\reports\\audits\\parent_git_audit_before.txt",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\reference_hand_closeup.png",
+    "To": "D:\\codex+blender\\model\\renders\\previews\\reference_hand_closeup.png",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\reference_hands_full.png",
+    "To": "D:\\codex+blender\\model\\renders\\previews\\reference_hands_full.png",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\reference_hands.py",
+    "To": "D:\\codex+blender\\model\\scripts\\modeling\\reference_hands.py",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\refine_arms.py",
+    "To": "D:\\codex+blender\\model\\scripts\\modeling\\refine_arms.py",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\refine_head.py",
+    "To": "D:\\codex+blender\\model\\scripts\\modeling\\refine_head.py",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\refine_legs.py",
+    "To": "D:\\codex+blender\\model\\scripts\\modeling\\refine_legs.py",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\refine_torso.py",
+    "To": "D:\\codex+blender\\model\\scripts\\modeling\\refine_torso.py",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\repair_floating_hardware.py",
+    "To": "D:\\codex+blender\\model\\scripts\\modeling\\repair_floating_hardware.py",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\robo_git_staged_audit.json",
+    "To": "D:\\codex+blender\\model\\reports\\audits\\robo_git_staged_audit.json",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\robot_arms_refined.blend",
+    "To": "D:\\codex+blender\\model\\blender\\history\\robot_arms_refined.blend",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\robot_assembly_finished.blend",
+    "To": "D:\\codex+blender\\model\\blender\\history\\robot_assembly_finished.blend",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\robot_assembly_finished.blend1",
+    "To": "D:\\codex+blender\\model\\backups\\blender\\robot_assembly_finished.blend1",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\robot_attachments_repaired.blend",
+    "To": "D:\\codex+blender\\model\\blender\\current\\robot_attachments_repaired.blend",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\robot_attachments_repaired.blend1",
+    "To": "D:\\codex+blender\\model\\backups\\blender\\robot_attachments_repaired.blend1",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\robot_complete_refined.blend",
+    "To": "D:\\codex+blender\\model\\blender\\history\\robot_complete_refined.blend",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\robot_complete_refined.blend1",
+    "To": "D:\\codex+blender\\model\\backups\\blender\\robot_complete_refined.blend1",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\robot_connections_fixed.blend",
+    "To": "D:\\codex+blender\\model\\blender\\history\\robot_connections_fixed.blend",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\robot_connections_fixed.blend1",
+    "To": "D:\\codex+blender\\model\\backups\\blender\\robot_connections_fixed.blend1",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\robot_hands_turned.blend",
+    "To": "D:\\codex+blender\\model\\blender\\history\\robot_hands_turned.blend",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\robot_head_refined.blend",
+    "To": "D:\\codex+blender\\model\\blender\\history\\robot_head_refined.blend",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\robot_head_shell_reviewed.blend",
+    "To": "D:\\codex+blender\\model\\blender\\history\\robot_head_shell_reviewed.blend",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\robot_head_shell_reviewed.blend1",
+    "To": "D:\\codex+blender\\model\\backups\\blender\\robot_head_shell_reviewed.blend1",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\robot_hips_connected.blend",
+    "To": "D:\\codex+blender\\model\\blender\\history\\robot_hips_connected.blend",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\robot_leg_shape_preview.blend",
+    "To": "D:\\codex+blender\\model\\blender\\history\\robot_leg_shape_preview.blend",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\robot_legs_feet_refined.blend",
+    "To": "D:\\codex+blender\\model\\blender\\history\\robot_legs_feet_refined.blend",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\robot_legs_matched.blend",
+    "To": "D:\\codex+blender\\model\\blender\\history\\robot_legs_matched.blend",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\robot_reference_construction.blend",
+    "To": "D:\\codex+blender\\model\\blender\\history\\robot_reference_construction.blend",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\robot_reference_construction.blend1",
+    "To": "D:\\codex+blender\\model\\backups\\blender\\robot_reference_construction.blend1",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\robot_reference_hands.blend",
+    "To": "D:\\codex+blender\\model\\blender\\history\\robot_reference_hands.blend",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\robot_reference_preview.png",
+    "To": "D:\\codex+blender\\model\\renders\\previews\\robot_reference_preview.png",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\robot_reference_refined.blend",
+    "To": "D:\\codex+blender\\model\\blender\\history\\robot_reference_refined.blend",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\robot_reference_refined.blend1",
+    "To": "D:\\codex+blender\\model\\backups\\blender\\robot_reference_refined.blend1",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\robot_shoulders_connected.blend",
+    "To": "D:\\codex+blender\\model\\blender\\history\\robot_shoulders_connected.blend",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\robot_target_rebuilt.blend",
+    "To": "D:\\codex+blender\\model\\blender\\history\\robot_target_rebuilt.blend",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\robot_target_rebuilt.blend1",
+    "To": "D:\\codex+blender\\model\\backups\\blender\\robot_target_rebuilt.blend1",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\robot_torso_refined.blend",
+    "To": "D:\\codex+blender\\model\\blender\\history\\robot_torso_refined.blend",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\setup_robo_git.ps1",
+    "To": "D:\\codex+blender\\model\\scripts\\maintenance\\setup_robo_git.ps1",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\shoulder_fixed_detail.png",
+    "To": "D:\\codex+blender\\model\\renders\\previews\\shoulder_fixed_detail.png",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\shoulders_fixed_full.png",
+    "To": "D:\\codex+blender\\model\\renders\\previews\\shoulders_fixed_full.png",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\target_rebuild_corrections.py",
+    "To": "D:\\codex+blender\\model\\scripts\\modeling\\target_rebuild_corrections.py",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\target_rebuild.py",
+    "To": "D:\\codex+blender\\model\\scripts\\modeling\\target_rebuild.py",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\torso_reference_detail.png",
+    "To": "D:\\codex+blender\\model\\renders\\previews\\torso_reference_detail.png",
+    "Directory": false
+  },
+  {
+    "From": "D:\\codex+blender\\model\\torso_reference_full.png",
+    "To": "D:\\codex+blender\\model\\renders\\previews\\torso_reference_full.png",
+    "Directory": false
+  }
+]

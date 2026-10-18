@@ -69,6 +69,6 @@ ring('Repair_NeckBaseArmor',(0,.02,1.309),.095,.074,.014,'Ivory')
 bpy.context.view_layer.update()
 root['connection_repairs']='Connected segmented hands aligned 15 degrees with forearms; neck reaches 1.380 m into helmet socket.'
 out=Path(r'D:\codex+blender\model')
-bpy.ops.wm.save_as_mainfile(filepath=str(out/'robot_connections_fixed.blend'))
+bpy.ops.wm.save_as_mainfile(filepath=str(Path('D:\\codex+blender\\model\\blender\\history\\robot_connections_fixed.blend')))
 print('Saved corrected model. Neck top 1.380 m; helmet bottom 1.3602 m; overlap 19.8 mm. Connected hand assemblies:',len(C.objects))
 

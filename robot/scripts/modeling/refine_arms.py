@@ -47,9 +47,9 @@ bpy.context.view_layer.update()
 sc=bpy.context.scene;cam=sc.camera
 cam.location=(1.05,-1.8,1.36);cam.rotation_euler=(Vector((.36,0,1.09))-cam.location).to_track_quat('-Z','Y').to_euler();cam.data.ortho_scale=.69
 sc.render.resolution_x=900;sc.render.resolution_y=1100
-sc.render.filepath=r'D:\codex+blender\model\arms_reference_detail.png';bpy.ops.render.render(write_still=True)
+sc.render.filepath=r'D:\codex+blender\model\robot\renders\previews\arms_reference_detail.png';bpy.ops.render.render(write_still=True)
 cam.location=(2.6,-4.5,2.5);cam.rotation_euler=(Vector((0,0,.91))-cam.location).to_track_quat('-Z','Y').to_euler();cam.data.ortho_scale=2.2
 sc.render.resolution_x=900;sc.render.resolution_y=1000
-sc.render.filepath=r'D:\codex+blender\model\arms_reference_full.png';bpy.ops.render.render(write_still=True)
-bpy.ops.wm.save_as_mainfile(filepath=r'D:\codex+blender\model\robot_arms_refined.blend')
+sc.render.filepath=r'D:\codex+blender\model\robot\renders\previews\arms_reference_full.png';bpy.ops.render.render(write_still=True)
+bpy.ops.wm.save_as_mainfile(filepath=r'D:\codex+blender\model\robot\blender\history\robot_arms_refined.blend')
 print('Saved rounded shoulder caps, exposed biceps mechanisms and segmented tapered forearms on both sides.')

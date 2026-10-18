@@ -57,9 +57,9 @@ bpy.context.view_layer.update()
 sc=bpy.context.scene;cam=sc.camera
 cam.location=(1.2,-2,1.0);cam.rotation_euler=(Vector((.27,-.015,.43))-cam.location).to_track_quat('-Z','Y').to_euler();cam.data.ortho_scale=.97
 sc.render.resolution_x=900;sc.render.resolution_y=1200
-sc.render.filepath=r'D:\codex+blender\model\legs_feet_reference_detail.png';bpy.ops.render.render(write_still=True)
+sc.render.filepath=r'D:\codex+blender\model\robot\renders\previews\legs_feet_reference_detail.png';bpy.ops.render.render(write_still=True)
 cam.location=(2.6,-4.5,2.5);cam.rotation_euler=(Vector((0,0,.91))-cam.location).to_track_quat('-Z','Y').to_euler();cam.data.ortho_scale=2.2
 sc.render.resolution_x=900;sc.render.resolution_y=1000
-sc.render.filepath=r'D:\codex+blender\model\legs_feet_reference_full.png';bpy.ops.render.render(write_still=True)
-bpy.ops.wm.save_as_mainfile(filepath=r'D:\codex+blender\model\robot_legs_feet_refined.blend')
+sc.render.filepath=r'D:\codex+blender\model\robot\renders\previews\legs_feet_reference_full.png';bpy.ops.render.render(write_still=True)
+bpy.ops.wm.save_as_mainfile(filepath=r'D:\codex+blender\model\robot\blender\history\robot_legs_feet_refined.blend')
 print('Saved symmetric leg and compact foot refinement. Old armor retained hidden; original hip, knee and ankle centers preserved.')

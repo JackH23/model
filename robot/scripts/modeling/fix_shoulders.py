@@ -30,9 +30,9 @@ bpy.data.objects['Robot_Phase1']['shoulder_connection']='Continuous torso-embedd
 sc=bpy.context.scene;cam=sc.camera
 cam.location=(.85,-1.8,1.48);cam.rotation_euler=(Vector((.225,.005,1.235))-cam.location).to_track_quat('-Z','Y').to_euler();cam.data.ortho_scale=.54
 sc.render.resolution_x=1000;sc.render.resolution_y=900
-sc.render.filepath=r'D:\codex+blender\model\shoulder_fixed_detail.png';bpy.ops.render.render(write_still=True)
+sc.render.filepath=r'D:\codex+blender\model\robot\renders\previews\shoulder_fixed_detail.png';bpy.ops.render.render(write_still=True)
 cam.location=(2.6,-4.5,2.5);cam.rotation_euler=(Vector((0,0,.91))-cam.location).to_track_quat('-Z','Y').to_euler();cam.data.ortho_scale=2.2
 sc.render.resolution_x=900;sc.render.resolution_y=1000
-sc.render.filepath=r'D:\codex+blender\model\shoulders_fixed_full.png';bpy.ops.render.render(write_still=True)
-bpy.ops.wm.save_as_mainfile(filepath=r'D:\codex+blender\model\robot_shoulders_connected.blend')
+sc.render.filepath=r'D:\codex+blender\model\robot\renders\previews\shoulders_fixed_full.png';bpy.ops.render.render(write_still=True)
+bpy.ops.wm.save_as_mainfile(filepath=r'D:\codex+blender\model\robot\blender\history\robot_shoulders_connected.blend')
 print('Saved both shoulder connections; axle spans |X| 0.120 to 0.316 m, overlapping torso and shoulder joint.')

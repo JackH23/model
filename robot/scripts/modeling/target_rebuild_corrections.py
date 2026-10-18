@@ -26,5 +26,5 @@ for s,side in [(1,'L'),(-1,'R')]:
  # Top metatarsal bridge follows the incline, rather than an exposed blank block.
  H['segment_box']('Target_InstepGuard.'+side,(cx,-.047,.105),(cx,.012,.14),.104,.033,C,M['Ivory'],bevel=.011)
 bpy.context.view_layer.update()
-bpy.ops.wm.save_as_mainfile(filepath=r'D:\codex+blender\model\robot_target_rebuilt.blend')
+bpy.ops.wm.save_as_mainfile(filepath=r'D:\codex+blender\model\robot\blender\history\robot_target_rebuilt.blend')
 print('Corrected thigh coverage and restored complete grounded mechanical feet.')

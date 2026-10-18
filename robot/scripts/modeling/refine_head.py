@@ -49,9 +49,9 @@ bpy.context.view_layer.update()
 sc=bpy.context.scene;cam=sc.camera
 cam.location=(.9,-1.8,1.78);cam.rotation_euler=(Vector((0,0,1.555))-cam.location).to_track_quat('-Z','Y').to_euler();cam.data.ortho_scale=.68
 sc.render.resolution_x=1100;sc.render.resolution_y=1000
-sc.render.filepath=r'D:\codex+blender\model\head_reference_detail.png';bpy.ops.render.render(write_still=True)
+sc.render.filepath=r'D:\codex+blender\model\robot\renders\previews\head_reference_detail.png';bpy.ops.render.render(write_still=True)
 cam.location=(2.6,-4.5,2.5);cam.rotation_euler=(Vector((0,0,.91))-cam.location).to_track_quat('-Z','Y').to_euler();cam.data.ortho_scale=2.2
 sc.render.resolution_x=900;sc.render.resolution_y=1000
-sc.render.filepath=r'D:\codex+blender\model\head_reference_full.png';bpy.ops.render.render(write_still=True)
-bpy.ops.wm.save_as_mainfile(filepath=r'D:\codex+blender\model\robot_head_refined.blend')
+sc.render.filepath=r'D:\codex+blender\model\robot\renders\previews\head_reference_full.png';bpy.ops.render.render(write_still=True)
+bpy.ops.wm.save_as_mainfile(filepath=r'D:\codex+blender\model\robot\blender\history\robot_head_refined.blend')
 print('Saved head refinement; previous head parts retained hidden, neck unchanged.')
