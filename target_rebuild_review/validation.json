@@ -1,0 +1,124 @@
+{
+  "new_objects": 58,
+  "geometry_issues": [],
+  "mirror_bounds_checks": [
+    {
+      "pair": "Target_Eye",
+      "max_bounds_error_m": 0.0
+    },
+    {
+      "pair": "Target_CheekInset",
+      "max_bounds_error_m": 0.0
+    },
+    {
+      "pair": "Target_ChestCollarGold",
+      "max_bounds_error_m": 0.0
+    },
+    {
+      "pair": "Target_WraparoundShoulder",
+      "max_bounds_error_m": 0.0
+    },
+    {
+      "pair": "Target_ShoulderGold",
+      "max_bounds_error_m": 0.0
+    },
+    {
+      "pair": "Target_UpperArmArmor",
+      "max_bounds_error_m": 0.0
+    },
+    {
+      "pair": "Target_ThighJacket",
+      "max_bounds_error_m": 0.0
+    },
+    {
+      "pair": "Target_ThighGold",
+      "max_bounds_error_m": 0.0
+    },
+    {
+      "pair": "Target_AngularCalf",
+      "max_bounds_error_m": 0.0
+    },
+    {
+      "pair": "Target_CalfGold",
+      "max_bounds_error_m": 0.0
+    },
+    {
+      "pair": "Target_ShoulderSeam",
+      "max_bounds_error_m": 0.0
+    },
+    {
+      "pair": "Target_KneeGuard",
+      "max_bounds_error_m": 0.0
+    },
+    {
+      "pair": "Target_AnkleInstep",
+      "max_bounds_error_m": 0.0
+    },
+    {
+      "pair": "Target_ShinFastener",
+      "max_bounds_error_m": 0.0
+    },
+    {
+      "pair": "Target_BackShell",
+      "max_bounds_error_m": 1.1920928955078125e-07
+    },
+    {
+      "pair": "Target_RearHipArmor",
+      "max_bounds_error_m": 0.0
+    },
+    {
+      "pair": "Target_ThighInnerFrame",
+      "max_bounds_error_m": 0.0
+    },
+    {
+      "pair": "Target_ContouredSole",
+      "max_bounds_error_m": 0.0
+    },
+    {
+      "pair": "Target_HeelHousing",
+      "max_bounds_error_m": 0.0
+    },
+    {
+      "pair": "Target_FittedToe_0",
+      "max_bounds_error_m": 0.0
+    },
+    {
+      "pair": "Target_ToeGold_0",
+      "max_bounds_error_m": 0.0
+    },
+    {
+      "pair": "Target_FittedToe_1",
+      "max_bounds_error_m": 0.0
+    },
+    {
+      "pair": "Target_ToeGold_1",
+      "max_bounds_error_m": 0.0
+    },
+    {
+      "pair": "Target_FittedToe_2",
+      "max_bounds_error_m": 0.0
+    },
+    {
+      "pair": "Target_ToeGold_2",
+      "max_bounds_error_m": 0.0
+    },
+    {
+      "pair": "Target_InstepGuard",
+      "max_bounds_error_m": 0.0
+    }
+  ],
+  "rendered_views": [
+    "front",
+    "back",
+    "left",
+    "right",
+    "front_threequarter",
+    "back_threequarter"
+  ],
+  "sole_min_z_m": 0.003000000026077032,
+  "limitations": [
+    "Static geometry only; no animation clearance or rig test",
+    "Art-directed approximation; not identical to generated target concept"
+  ],
+  "final_chest_sidewall_zero_area_faces": 0
+}

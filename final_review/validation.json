@@ -1,0 +1,18 @@
+{
+  "new_objects": 38,
+  "mirrored_pairs_checked": 16,
+  "symmetry_failures": [],
+  "zero_area_faces": [],
+  "nonfinite_meshes": [],
+  "missing_materials": [],
+  "visual_views_checked": [
+    "front",
+    "back",
+    "left",
+    "right",
+    "front_threequarter",
+    "back_threequarter"
+  ],
+  "foot_ground_clearance_m": 0.004000000189989805,
+  "scope": "Static geometry and rendered appearance checks; no rigging or animation clearance test. Exact reference match not asserted."
+}

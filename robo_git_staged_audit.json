@@ -1,0 +1,118 @@
+[
+  {
+    "Path": "robot_hands_turned.blend",
+    "Bytes": 11166387
+  },
+  {
+    "Path": "robot_phase1_blockout_revised.blend",
+    "Bytes": 11046815
+  },
+  {
+    "Path": "robot_phase1_blockout.blend",
+    "Bytes": 6109759
+  },
+  {
+    "Path": "renders/phase1_revised/phase1_before_after.png",
+    "Bytes": 3191560
+  },
+  {
+    "Path": "renders/phase1_revised/phase1_threequarter.png",
+    "Bytes": 1301121
+  },
+  {
+    "Path": "renders/phase1_revised/phase1_front.png",
+    "Bytes": 1221515
+  },
+  {
+    "Path": "renders/phase1_revised/phase1_back.png",
+    "Bytes": 1209354
+  },
+  {
+    "Path": "renders/phase1_revised/phase1_side.png",
+    "Bytes": 1151757
+  },
+  {
+    "Path": "renders/refined/reference_hand_closeup.png",
+    "Bytes": 1099114
+  },
+  {
+    "Path": "renders/refined/robot_reference_preview.png",
+    "Bytes": 1072307
+  },
+  {
+    "Path": "renders/refined/hands_turned_full.png",
+    "Bytes": 1070116
+  },
+  {
+    "Path": "renders/refined/neck_fixed_detail.png",
+    "Bytes": 995078
+  },
+  {
+    "Path": "renders/refined/hands_turned_detail.png",
+    "Bytes": 936809
+  },
+  {
+    "Path": "renders/phase1_threequarter.png",
+    "Bytes": 915265
+  },
+  {
+    "Path": "renders/phase1_front.png",
+    "Bytes": 859254
+  },
+  {
+    "Path": "renders/phase1_back.png",
+    "Bytes": 852623
+  },
+  {
+    "Path": "renders/phase1_side.png",
+    "Bytes": 810058
+  },
+  {
+    "Path": "scripts/phase1_robot_blockout.py",
+    "Bytes": 53776
+  },
+  {
+    "Path": "scripts/phase2_articulation.py",
+    "Bytes": 20525
+  },
+  {
+    "Path": "phase2/clearance_report.json",
+    "Bytes": 11975
+  },
+  {
+    "Path": "phase2/baseline_state.json",
+    "Bytes": 6493
+  },
+  {
+    "Path": "scripts/continue_robot.py",
+    "Bytes": 6199
+  },
+  {
+    "Path": "scripts/fix_connections.py",
+    "Bytes": 4286
+  },
+  {
+    "Path": "scripts/reference_hands.py",
+    "Bytes": 4237
+  },
+  {
+    "Path": "phase2/phase1_preservation.json",
+    "Bytes": 3488
+  },
+  {
+    "Path": "README.md",
+    "Bytes": 1397
+  },
+  {
+    "Path": "phase1_validation.json",
+    "Bytes": 861
+  },
+  {
+    "Path": "phase1_revised_validation.json",
+    "Bytes": 860
+  },
+  {
+    "Path": ".gitignore",
+    "Bytes": 676
+  }
+]

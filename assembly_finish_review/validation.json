@@ -1,0 +1,63 @@
+{
+  "revision": "Shoulder/chest/helmet assembly finish",
+  "geometry_issues": [],
+  "quad_surfaces": [
+    {
+      "object": "Finish_QuadHelmetHousing",
+      "quads": 576,
+      "faces": 576
+    },
+    {
+      "object": "Finish_QuadBrowJawSurround",
+      "quads": 512,
+      "faces": 512
+    },
+    {
+      "object": "Finish_QuadCurvedVisor",
+      "quads": 256,
+      "faces": 256
+    }
+  ],
+  "shoulder_surface_contact": [
+    {
+      "parts": [
+        "Finish_ShoulderSocket.L",
+        "Ref16_SculptedPauldron.L"
+      ],
+      "intersecting_triangle_pairs": 278,
+      "contact_confirmed": true
+    },
+    {
+      "parts": [
+        "Finish_ShoulderAxle.L",
+        "Shoulder_Joint.L"
+      ],
+      "intersecting_triangle_pairs": 64,
+      "contact_confirmed": true
+    },
+    {
+      "parts": [
+        "Finish_ShoulderSocket.R",
+        "Ref16_SculptedPauldron.R"
+      ],
+      "intersecting_triangle_pairs": 278,
+      "contact_confirmed": true
+    },
+    {
+      "parts": [
+        "Finish_ShoulderAxle.R",
+        "Shoulder_Joint.R"
+      ],
+      "intersecting_triangle_pairs": 64,
+      "contact_confirmed": true
+    }
+  ],
+  "chest_front_depth_reduction_percent": 22,
+  "visual_checks": [
+    "front closeup",
+    "side closeup",
+    "back closeup",
+    "threequarter closeup"
+  ],
+  "limits": "Static contact checks only; no animation collision test or exact reference equivalence."
+}

@@ -1,0 +1,100 @@
+{
+  "reference": "User supplied Robo-Jack target concept",
+  "new_objects": 54,
+  "geometry_issues": [],
+  "mirror_checks": [
+    {
+      "part": "Ref16_Eye",
+      "bounds_error_m": 0.0
+    },
+    {
+      "part": "Ref16_CheekGuard",
+      "bounds_error_m": 0.0
+    },
+    {
+      "part": "Ref16_CheekGold",
+      "bounds_error_m": 2.384185791015625e-07
+    },
+    {
+      "part": "Ref16_JawCenter",
+      "bounds_error_m": 0.0
+    },
+    {
+      "part": "Ref16_ChestGold",
+      "bounds_error_m": 1.4901161193847656e-08
+    },
+    {
+      "part": "Ref16_ChestPanelLine",
+      "bounds_error_m": 0.0
+    },
+    {
+      "part": "Ref16_SculptedPauldron",
+      "bounds_error_m": 7.450580596923828e-09
+    },
+    {
+      "part": "Ref16_ShoulderGoldInlay",
+      "bounds_error_m": 9.313225746154785e-10
+    },
+    {
+      "part": "Ref16_NotchedCalfArmor",
+      "bounds_error_m": 0.0
+    },
+    {
+      "part": "Ref16_LowerShinActuator",
+      "bounds_error_m": 0.0
+    },
+    {
+      "part": "Ref16_LowerShinRod",
+      "bounds_error_m": 0.0
+    },
+    {
+      "part": "Ref16_KneeActuator",
+      "bounds_error_m": 0.0
+    },
+    {
+      "part": "Ref16_KneeRod",
+      "bounds_error_m": 0.0
+    },
+    {
+      "part": "Ref16_KneeCap",
+      "bounds_error_m": 0.0
+    },
+    {
+      "part": "Ref16_CalfPanelBreak",
+      "bounds_error_m": 0.0
+    },
+    {
+      "part": "Ref16_ThighGold",
+      "bounds_error_m": 0.0
+    },
+    {
+      "part": "Ref16_AnkleFork",
+      "bounds_error_m": 0.0
+    },
+    {
+      "part": "Ref16_ThighArmorSplit",
+      "bounds_error_m": 1.043081283569336e-07
+    },
+    {
+      "part": "Ref16_ThighInsetGold",
+      "bounds_error_m": 5.960464477539062e-07
+    },
+    {
+      "part": "Ref16_ForearmPanelSplit",
+      "bounds_error_m": 5.960464477539063e-08
+    },
+    {
+      "part": "Ref16_ForearmGoldInlay",
+      "bounds_error_m": 7.517635822296143e-06
+    }
+  ],
+  "views": [
+    "front",
+    "back",
+    "left",
+    "right",
+    "front_threequarter",
+    "back_threequarter"
+  ],
+  "scope": "Static source geometry and appearance; no animation clearance or runtime export test. Design remains an approximation."
+}

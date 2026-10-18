@@ -1,0 +1,32 @@
+[
+  {
+    "object": "Attach_ForearmBolt_0.L",
+    "support": "Arm_ForearmShell.L",
+    "base_embed_m": 0.001
+  },
+  {
+    "object": "Attach_ForearmBolt_1.L",
+    "support": "Arm_ForearmShell.L",
+    "base_embed_m": 0.001
+  },
+  {
+    "object": "Attach_ForearmBolt_0.R",
+    "support": "Arm_ForearmShell.R",
+    "base_embed_m": 0.001
+  },
+  {
+    "object": "Attach_ForearmBolt_1.R",
+    "support": "Arm_ForearmShell.R",
+    "base_embed_m": 0.001
+  },
+  {
+    "object": "Attach_ChestBolt.L",
+    "support": "Ref16_CompoundChestShell",
+    "base_embed_m": 0.001
+  },
+  {
+    "object": "Attach_ChestBolt.R",
+    "support": "Ref16_CompoundChestShell",
+    "base_embed_m": 0.001
+  }
+]
