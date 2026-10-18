@@ -1,0 +1,142 @@
+{
+  "contact_checks": [
+    {
+      "parts": [
+        "Attach_ReactorMount",
+        "Ref16_CompoundChestShell"
+      ],
+      "surface_intersections": 288,
+      "contact_confirmed": true
+    },
+    {
+      "parts": [
+        "Attach_ReactorIntegratedBezel",
+        "Attach_ReactorMount"
+      ],
+      "surface_intersections": 55,
+      "contact_confirmed": true
+    },
+    {
+      "parts": [
+        "Attach_ReactorRecessedLens",
+        "Attach_ReactorMount"
+      ],
+      "surface_intersections": 15,
+      "contact_confirmed": true
+    },
+    {
+      "parts": [
+        "Attach_PelvisShieldMount",
+        "Pelvis_ShieldBacking"
+      ],
+      "surface_intersections": 40,
+      "contact_confirmed": true
+    },
+    {
+      "parts": [
+        "Attach_PelvisShieldMount",
+        "Pelvis_InternalChassis"
+      ],
+      "surface_intersections": 36,
+      "contact_confirmed": true
+    },
+    {
+      "parts": [
+        "Attach_AbdomenStructuralBridge",
+        "Torso_ArmoredChassis"
+      ],
+      "surface_intersections": 24,
+      "contact_confirmed": true
+    },
+    {
+      "parts": [
+        "Torso_AbdominalVertebra_0",
+        "Attach_AbdomenStructuralBridge"
+      ],
+      "surface_intersections": 36,
+      "contact_confirmed": true
+    },
+    {
+      "parts": [
+        "Torso_AbdominalVertebra_1",
+        "Attach_AbdomenStructuralBridge"
+      ],
+      "surface_intersections": 44,
+      "contact_confirmed": true
+    },
+    {
+      "parts": [
+        "Torso_AbdominalVertebra_2",
+        "Attach_AbdomenStructuralBridge"
+      ],
+      "surface_intersections": 36,
+      "contact_confirmed": true
+    },
+    {
+      "parts": [
+        "Attach_ConformingForearmPanel.L",
+        "Arm_ForearmShell.L"
+      ],
+      "surface_intersections": 76,
+      "contact_confirmed": true
+    },
+    {
+      "parts": [
+        "Attach_ForearmBolt_0.L",
+        "Attach_ConformingForearmPanel.L"
+      ],
+      "surface_intersections": 34,
+      "contact_confirmed": true
+    },
+    {
+      "parts": [
+        "Attach_ForearmBolt_1.L",
+        "Attach_ConformingForearmPanel.L"
+      ],
+      "surface_intersections": 36,
+      "contact_confirmed": true
+    },
+    {
+      "parts": [
+        "Attach_ChestBolt.L",
+        "Ref16_CompoundChestShell"
+      ],
+      "surface_intersections": 39,
+      "contact_confirmed": true
+    },
+    {
+      "parts": [
+        "Attach_ConformingForearmPanel.R",
+        "Arm_ForearmShell.R"
+      ],
+      "surface_intersections": 76,
+      "contact_confirmed": true
+    },
+    {
+      "parts": [
+        "Attach_ForearmBolt_0.R",
+        "Attach_ConformingForearmPanel.R"
+      ],
+      "surface_intersections": 34,
+      "contact_confirmed": true
+    },
+    {
+      "parts": [
+        "Attach_ForearmBolt_1.R",
+        "Attach_ConformingForearmPanel.R"
+      ],
+      "surface_intersections": 36,
+      "contact_confirmed": true
+    },
+    {
+      "parts": [
+        "Attach_ChestBolt.R",
+        "Ref16_CompoundChestShell"
+      ],
+      "surface_intersections": 41,
+      "contact_confirmed": true
+    }
+  ],
+  "geometry_issues": [],
+  "limits": "Static surface overlap confirms mounting, not animation clearance. Intentional embedding is retained."
+}
