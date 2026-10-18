@@ -48,3 +48,7 @@ Dependencies are pinned in package.json and package-lock.json. Fonts are bundled
 The viewer deploys to https://jackh23.github.io/model/ through `.github/workflows/deploy-pages.yml` on pushes to `master` that change the viewer. The workflow builds with `/model/` as Vite's base URL and publishes only `web-viewer/dist`.
 
 Local development stays unchanged: run `npm run dev` from this directory. To reproduce the hosted build, run `npm run build -- --base=/model/`.
+
+## Model library
+
+The home page displays model cards. `viewer.html?model=robo-jack` opens the part inspector. To add another model, put its GLB and preview image under `public/models/` and add an entry to `src/catalog.js`. Each entry defines its id, name, category, description, file, preview and optional part count. Set `grouping` to `robot` only for Robo-Jack; other models use their exported region metadata or a general Assembly group. The production build includes both pages and supports GitHub Pages subpaths.

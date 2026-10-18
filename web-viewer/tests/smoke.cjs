@@ -15,7 +15,7 @@ const path = require('node:path');
   page.on('console', (m) => { if (m.type() === 'error') errors.push(m.text()); });
   page.on('requestfailed', (r) => failures.push(`${r.url()} ${r.failure()?.errorText}`));
   try {
-    await page.goto(process.env.TEST_URL || 'http://127.0.0.1:5173', { waitUntil: 'networkidle' });
+    await page.goto(new URL('viewer.html?model=robo-jack', (process.env.TEST_URL || 'http://127.0.0.1:5173/').replace(/\/?$/, '/')).href, { waitUntil: 'networkidle' });
     await page.waitForFunction(() => window.roboJack?.ready, { timeout: 60000 });
     assert.equal(await page.evaluate(() => window.roboJack.parts.length), 387);
     assert.equal(await page.locator('.part-row').count(), 387);

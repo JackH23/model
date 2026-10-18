@@ -1,3 +1,4 @@
+import { models, assetUrl } from './catalog.js';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
@@ -12,6 +13,17 @@ import '@fontsource/space-grotesk/latin-700.css';
 import './style.css';
 
 const $ = (id) => document.getElementById(id);
+const modelId = new URLSearchParams(location.search).get('model') || models[0]?.id;
+const model = models.find(entry => entry.id === modelId);
+if (!model) {
+  document.body.innerHTML = '<main style="padding:48px"><h1>Model not found</h1><p>This model is not in the collection.</p><a href="./" style="color:#99e6e7">← Back to library</a></main>';
+  throw new Error('Unknown model id');
+}
+document.title = `${model.name} / Assembly Explorer`;
+document.querySelector('.brand').lastElementChild.innerHTML = `${model.name.toUpperCase()}<small>ASSEMBLY EXPLORER</small>`;
+document.querySelector('.stage-heading .eyebrow').textContent = `${model.name.toUpperCase()} / 001`;
+$('loading').querySelector('strong').textContent = `Assembling ${model.name}`;
+
 const viewport = $('viewport');
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(36, 1, 0.01, 100);
@@ -24,7 +36,7 @@ renderer.toneMappingExposure = 1.0;
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 viewport.append(renderer.domElement);
-renderer.domElement.setAttribute('aria-label', 'Robo-Jack interactive 3D assembly. Drag to orbit, scroll to zoom, click a part to select.');
+renderer.domElement.setAttribute('aria-label', `${model.name} interactive 3D assembly. Drag to orbit, scroll to zoom, click a part to select.`);
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.dampingFactor = 0.07;
@@ -96,6 +108,7 @@ function readable(name) {
 }
 function regionFor(mesh, center) {
   if (mesh.userData.region) return mesh.userData.region;
+  if (model.grouping !== 'robot') return 'Assembly';
   if (center.y > 1.34) return 'Head';
   if (Math.abs(center.x) > 0.27 && center.y > 0.6) return center.x > 0 ? 'Left arm' : 'Right arm';
   if (center.y > 0.93) return 'Torso';
@@ -186,11 +199,11 @@ function buildList(query = '') {
   if (!filtered.length) {
     const p = document.createElement('p'); p.className = 'no-results'; p.textContent = 'No parts match your search.'; $('parts').append(p); return;
   }
-  for (const group of groups) {
+  for (const group of [...new Set([...groups, ...state.records.map(record => record.region)])]) {
     const records = filtered.filter((r) => r.region === group);
     if (!records.length) continue;
     const details = document.createElement('details'); details.className = 'group';
-    details.open = Boolean(query) || group === 'Head' || state.selected?.region === group;
+    details.open = Boolean(query) || group === 'Head' || model.grouping !== 'robot' || state.selected?.region === group;
     const summary = document.createElement('summary'); summary.textContent = group;
     const count = document.createElement('span'); count.className = 'group-count'; count.textContent = String(records.length); summary.append(count); details.append(summary);
     for (const record of records) {
@@ -291,8 +304,8 @@ resize();
 renderer.domElement.addEventListener('webglcontextlost', (event) => { event.preventDefault(); toast('Graphics paused. Waiting for the browser to restore WebGL…'); });
 renderer.domElement.addEventListener('webglcontextrestored', () => toast('Graphics restored'));
 const loader = new GLTFLoader();
-loader.load(`${import.meta.env.BASE_URL}models/robo-jack.glb`, (gltf) => {
-  const robot = gltf.scene; robot.name = 'Robo-Jack'; scene.add(robot); robot.updateMatrixWorld(true);
+loader.load(assetUrl(model.file), (gltf) => {
+  const robot = gltf.scene; robot.name = model.name; scene.add(robot); robot.updateMatrixWorld(true);
   robot.traverse((mesh) => {
     if (!mesh.isMesh) return;
     mesh.name = mesh.userData.sourceName || mesh.name;
@@ -318,7 +331,7 @@ loader.load(`${import.meta.env.BASE_URL}models/robo-jack.glb`, (gltf) => {
   $('loading').hidden = true; state.loaded = true;
 }, (event) => { $('progress').textContent = event.total ? `${Math.round(event.loaded / event.total * 100)}% · Loading assembly` : `${(event.loaded / 1048576).toFixed(1)} MB loaded`; }, (error) => {
   console.error('Model loading failed', error); $('loading').querySelector('strong').textContent = 'Model could not load';
-  $('progress').textContent = 'Check that public/models/robo-jack.glb exists, then refresh the page.'; $('load-state').textContent = 'MODEL UNAVAILABLE';
+  $('progress').textContent = `Unable to load ${model.name}. Return to the library or refresh to retry.`; $('load-state').textContent = 'MODEL UNAVAILABLE';
 });
 renderer.setAnimationLoop((time) => {
   if (cameraTween) {
