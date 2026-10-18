@@ -42,3 +42,9 @@ npm run test:browser
 The browser smoke test uses installed Google Chrome on Windows. Set `CHROME_PATH` to use another Chromium executable. Start `npm run dev` before testing; set `TEST_URL` to test another local server. Tests cover model loading, canvas picking, search, isolation, hiding, object offsets, explosion, wireframe, camera focus, PNG download, reset, and mobile overflow. Reports and screenshots are written to ignored `test-results/`.
 
 Dependencies are pinned in package.json and package-lock.json. Fonts are bundled locally. No deployment or Git commit is created automatically.
+
+## GitHub Pages
+
+The viewer deploys to https://jackh23.github.io/model/ through `.github/workflows/deploy-pages.yml` on pushes to `master` that change the viewer. The workflow builds with `/model/` as Vite's base URL and publishes only `web-viewer/dist`.
+
+Local development stays unchanged: run `npm run dev` from this directory. To reproduce the hosted build, run `npm run build -- --base=/model/`.
