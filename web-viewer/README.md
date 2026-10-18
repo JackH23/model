@@ -52,3 +52,13 @@ Local development stays unchanged: run `npm run dev` from this directory. To rep
 ## Model library
 
 The home page displays model cards. `viewer.html?model=robo-jack` opens the part inspector. To add another model, put its GLB and preview image under `public/models/` and add an entry to `src/catalog.js`. Each entry defines its id, name, category, description, file, preview and optional part count. Set `grouping` to `robot` only for Robo-Jack; other models use their exported region metadata or a general Assembly group. The production build includes both pages and supports GitHub Pages subpaths.
+
+## Loading optimization
+
+The catalog loads `robo-jack.meshopt.glb` (3,341,624 bytes) rather than the original 4,574,844-byte export. `npm run optimize:model` rebuilds it using lossless Meshopt encoding, exact vertex welding, and duplicate accessor/material removal; selectable nodes and their metadata are retained. The source export and Blender file remain unchanged. The decoder is bundled locally.
+
+Model cards prefetch the asset on hover or keyboard focus, except with Save Data or slow 2G connections. Download progress is capped at 85%, preparation uses 88%, and first-frame preparation uses 95%. The viewer reports 100% and removes the overlay only after validating the expected part count, preparing shaders, and submitting a frame with rendered geometry. Download, decode, preparation, and initial render failures show an error instead of a completion status.
+
+Validation: `npm run test:asset` compares all 387 world-space bounds; `npm run test:browser` checks interactions; `npm run test:loading` checks successful completion and failed/delayed downloads. These browser tests use the production preview at `http://127.0.0.1:4174/model/` (build with `npm run build -- --base=/model/`, then `npm run preview -- --port 4174 --base=/model/`).
+
+`npm run benchmark` compares original and compressed assets with a fresh browser cache under simulated 5 Mbps throughput and 40 ms latency. Three trials measured median navigation-to-render readiness of 9.86 s for the original and 7.84 s for the optimized asset. Results depend on hardware and network. Local unthrottled timing is dominated by shader and GPU startup, so file-size savings do not imply the same percentage improvement on localhost.

@@ -17,6 +17,7 @@ const path = require('node:path');
   try {
     await page.goto(new URL('viewer.html?model=robo-jack', (process.env.TEST_URL || 'http://127.0.0.1:5173/').replace(/\/?$/, '/')).href, { waitUntil: 'networkidle' });
     await page.waitForFunction(() => window.roboJack?.ready, { timeout: 60000 });
+    const originalPositions = await page.evaluate(() => window.roboJack.parts.map(p => p.position));
     assert.equal(await page.evaluate(() => window.roboJack.parts.length), 387);
     assert.equal(await page.locator('.part-row').count(), 387);
     assert.equal(await page.evaluate(() => window.roboJack.parts.some((p) => p.name === 'Studio_Ground')), false);
@@ -78,7 +79,8 @@ const path = require('node:path');
     await page.locator('#reset-all').click();
     await page.waitForTimeout(650);
     assert.equal(await page.evaluate(() => window.roboJack.selected), null);
-    assert.ok(await page.evaluate(() => window.roboJack.parts.every((p) => p.visible && p.offset.every((v) => v === 0) && p.position.every((v) => Math.abs(v) < 1e-5))));
+    assert.ok(await page.evaluate(() => window.roboJack.parts.every(p => p.visible && p.offset.every(v => v === 0))));
+    assert.deepEqual(await page.evaluate(() => window.roboJack.parts.map(p => p.position)), originalPositions);
     checks.push('Reset scene restores all visibility, positions, explosion and selection');
     await page.screenshot({ path: path.join(output, 'desktop-final.png') });
 

@@ -1,6 +1,7 @@
 import { models, assetUrl } from './catalog.js';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { MeshoptDecoder } from 'meshoptimizer/decoder';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import '@fontsource/dm-sans/latin-400.css';
@@ -62,6 +63,7 @@ scene.add(rim);
 const fill = new THREE.DirectionalLight(0xffffff, 1.1);
 fill.position.set(-2, 2, 3);
 scene.add(fill);
+function prepareEnvironment() {
 const pmrem = new THREE.PMREMGenerator(renderer);
 const room = new RoomEnvironment();
 const environment = pmrem.fromScene(room, 0.04);
@@ -69,6 +71,7 @@ scene.environment = environment.texture;
 scene.environmentIntensity = 0.7;
 room.dispose();
 pmrem.dispose();
+}
 const floor = new THREE.Mesh(new THREE.PlaneGeometry(200, 200), new THREE.ShadowMaterial({ opacity: 0.22 }));
 floor.rotation.x = -Math.PI / 2;
 floor.position.y = -0.001;
@@ -301,15 +304,37 @@ function resize() {
 }
 new ResizeObserver(resize).observe(viewport);
 resize();
-renderer.domElement.addEventListener('webglcontextlost', (event) => { event.preventDefault(); toast('Graphics paused. Waiting for the browser to restore WebGL…'); });
+renderer.domElement.addEventListener('webglcontextlost', (event) => { event.preventDefault(); if (!state.loaded) loadFailed(new Error('Graphics context lost during loading')); else toast('Graphics paused. Waiting for the browser to restore WebGL…'); });
 renderer.domElement.addEventListener('webglcontextrestored', () => toast('Graphics restored'));
-const loader = new GLTFLoader();
-loader.load(assetUrl(model.file), (gltf) => {
+const loadTiming = { startedMs: performance.now(), downloadMs: null, readyMs: null };
+let loadStage = 'downloading';
+function progress(percent, message) {
+  $('progress').textContent = `${percent}% · ${message}`;
+  $('loading').dataset.stage = loadStage;
+  $('loading').dataset.percent = String(percent);
+}
+function loadFailed(error) {
+  state.loaded = false; loadStage = 'error';
+  $('loading').hidden = false; $('loading').dataset.stage = 'error';
+  $('loading').removeAttribute('data-percent');
+  $('loading').querySelector('strong').textContent = 'Model could not load';
+  $('progress').textContent = `Unable to prepare ${model.name}. Refresh to retry or return to the library.`;
+  $('load-state').textContent = 'MODEL UNAVAILABLE';
+  console.error('Model loading failed', error);
+}
+progress(0, 'Downloading model');
+const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
+loader.load(assetUrl(model.file), async (gltf) => {
+ try {
+  loadStage = 'preparing'; progress(88, 'Preparing individual parts');
+  await new Promise(requestAnimationFrame);
+  prepareEnvironment();
   const robot = gltf.scene; robot.name = model.name; scene.add(robot); robot.updateMatrixWorld(true);
   robot.traverse((mesh) => {
     if (!mesh.isMesh) return;
     mesh.name = mesh.userData.sourceName || mesh.name;
-    mesh.geometry.computeBoundingBox(); mesh.geometry.computeBoundingSphere();
+    if (!mesh.geometry.boundingBox) mesh.geometry.computeBoundingBox();
+    if (!mesh.geometry.boundingSphere) mesh.geometry.computeBoundingSphere();
     mesh.castShadow = mesh.geometry.boundingBox.getSize(new THREE.Vector3()).length() > 0.045;
     mesh.receiveShadow = true;
     const originals = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
@@ -327,12 +352,33 @@ loader.load(assetUrl(model.file), (gltf) => {
   });
   state.records.sort((a, b) => a.label.localeCompare(b.label));
   modelBounds.setFromObject(robot); buildList(); frame(modelBounds, new THREE.Vector3(1.5, 0.65, 3), true);
-  $('part-count').textContent = String(state.records.length); $('load-state').textContent = `${state.records.length} PARTS / READY`;
-  $('loading').hidden = true; state.loaded = true;
-}, (event) => { $('progress').textContent = event.total ? `${Math.round(event.loaded / event.total * 100)}% · Loading assembly` : `${(event.loaded / 1048576).toFixed(1)} MB loaded`; }, (error) => {
-  console.error('Model loading failed', error); $('loading').querySelector('strong').textContent = 'Model could not load';
-  $('progress').textContent = `Unable to load ${model.name}. Return to the library or refresh to retry.`; $('load-state').textContent = 'MODEL UNAVAILABLE';
-});
+  if (!state.records.length || modelBounds.isEmpty()) throw new Error('The model has no renderable parts');
+  if (model.partCount && state.records.length !== model.partCount) throw new Error('The model is missing expected parts');
+  $('part-count').textContent = String(state.records.length);
+  loadStage = 'rendering'; progress(95, 'Preparing first frame');
+  await new Promise(requestAnimationFrame);
+  let shaderFailed = false;
+  renderer.debug.onShaderError = () => { shaderFailed = true; };
+  await renderer.compileAsync(scene, camera);
+  controls.update(); renderer.render(scene, camera);
+  if (shaderFailed || renderer.getContext().isContextLost() || renderer.info.render.triangles === 0) throw new Error('The first frame could not render');
+  // Let the submitted model frame reach the screen before reporting completion.
+  await new Promise(requestAnimationFrame);
+  loadTiming.readyMs = performance.now() - loadTiming.startedMs;
+  loadStage = 'ready'; progress(100, 'Model rendered successfully');
+  $('load-state').textContent = `${state.records.length} PARTS / READY`;
+  state.loaded = true; $('loading').hidden = true;
+ } catch (error) { loadFailed(error); }
+}, (event) => {
+  if (loadStage !== 'downloading') return;
+  if (event.total && event.loaded >= event.total) {
+    loadTiming.downloadMs = performance.now() - loadTiming.startedMs;
+    progress(85, 'Download complete · Decoding model');
+  } else {
+    progress(event.total ? Math.min(84, Math.round(event.loaded / event.total * 85)) : 0,
+      event.total ? 'Downloading model' : `Downloading model · ${(event.loaded / 1048576).toFixed(1)} MB`);
+  }
+}, loadFailed);
 renderer.setAnimationLoop((time) => {
   if (cameraTween) {
     const t = Math.min(1, (time - cameraTween.start) / 450); const ease = 1 - (1 - t) ** 3;
@@ -344,6 +390,7 @@ renderer.setAnimationLoop((time) => {
 // Read-only diagnostics for browser verification and future integrations.
 window.roboJack = {
   get ready() { return state.loaded; },
+  get loading() { return { stage: loadStage, ...loadTiming }; },
   get parts() { return state.records.map((r) => ({ name: r.mesh.name, region: r.region, visible: r.mesh.visible, offset: r.offset.toArray(), position: r.mesh.position.toArray() })); },
   get selected() { return state.selected?.mesh.name || null; },
   get metrics() { return { triangles: renderer.info.render.triangles, drawCalls: renderer.info.render.calls, partCount: state.records.length }; },

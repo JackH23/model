@@ -3,7 +3,7 @@ export const models = [
   {
     id: 'robo-jack', name: 'Robo-Jack', category: 'Character / Mecha',
     description: 'Ivory armor. Gold accents. One curious machine. Explore its complete mechanical assembly.',
-    file: 'models/robo-jack.glb', preview: 'models/robo-jack-preview.png',
+    file: 'models/robo-jack.meshopt.glb', preview: 'models/robo-jack-preview.png',
     partCount: 387, grouping: 'robot', badge: 'RJ',
   },
 ];

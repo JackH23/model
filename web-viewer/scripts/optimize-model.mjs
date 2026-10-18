@@ -1,0 +1,22 @@
+import { NodeIO } from '@gltf-transform/core';
+import { EXTMeshoptCompression, ALL_EXTENSIONS } from '@gltf-transform/extensions';
+import { reorder, weld, dedup } from '@gltf-transform/functions';
+import { MeshoptEncoder, MeshoptDecoder } from 'meshoptimizer';
+import { stat, writeFile, mkdir } from 'node:fs/promises';
+await Promise.all([MeshoptEncoder.ready, MeshoptDecoder.ready]);
+await mkdir('test-results', { recursive: true });
+const io = new NodeIO().registerExtensions(ALL_EXTENSIONS).registerDependencies({ 'meshopt.encoder': MeshoptEncoder, 'meshopt.decoder': MeshoptDecoder });
+const input = 'public/models/robo-jack.glb';
+const output = 'public/models/robo-jack.meshopt.glb';
+const document = await io.read(input);
+const snapshot = doc => doc.getRoot().listNodes().filter(n => n.getMesh()).map(n => ({ name:n.getName(), extras:n.getExtras() })).sort((a,b)=>a.name.localeCompare(b.name));
+const before = snapshot(document);
+await document.transform(weld(), dedup({ propertyTypes: ['Accessor', 'Material'] }), reorder({ encoder: MeshoptEncoder, target: 'size' }));
+// QUANTIZE here selects lossless encoding; no quantize transform is applied.
+document.createExtension(EXTMeshoptCompression).setRequired(true).setEncoderOptions({ method: EXTMeshoptCompression.EncoderMethod.QUANTIZE });
+await io.write(output, document);
+const after = snapshot(await io.read(output));
+if (JSON.stringify(before) !== JSON.stringify(after)) throw new Error('Part names or metadata changed during compression');
+const report = { originalBytes:(await stat(input)).size, optimizedBytes:(await stat(output)).size, parts:after.length };
+await writeFile('test-results/compression.json', JSON.stringify(report,null,2));
+console.log(report);

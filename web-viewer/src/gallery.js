@@ -6,12 +6,22 @@ import './style.css';
 import './gallery.css';
 import { models, assetUrl } from './catalog.js';
 const grid = document.querySelector('#model-grid');
+const prefetched = new Set();
+function prefetchModel(model) {
+  if (prefetched.has(model.id) || navigator.connection?.saveData || /(^|-)2g$/.test(navigator.connection?.effectiveType || '')) return;
+  prefetched.add(model.id);
+  const link = document.createElement('link');
+  link.rel = 'prefetch'; link.as = 'fetch'; link.crossOrigin = 'anonymous'; link.href = assetUrl(model.file);
+  document.head.append(link);
+}
 function render(query = '') {
   grid.replaceChildren();
   const filtered = models.filter(model => `${model.name} ${model.category} ${model.description}`.toLowerCase().includes(query.toLowerCase().trim()));
   for (const model of filtered) {
     const card = document.createElement('a');
     card.className = 'model-card';
+    card.addEventListener('pointerenter', () => prefetchModel(model), { once: true });
+    card.addEventListener('focus', () => prefetchModel(model), { once: true });
     card.href = `${import.meta.env.BASE_URL}viewer.html?model=${encodeURIComponent(model.id)}`;
     card.setAttribute('aria-label', `Open ${model.name} interactive model`);
     const imageWrap = document.createElement('div'); imageWrap.className = 'card-image';
