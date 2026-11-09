@@ -78,7 +78,7 @@ npm run build -- --base=/model/
 npm run preview -- --port 4174 --base=/model/
 ```
 
-With that preview running, use another terminal for `npm run preview:villages`. It verifies every imported model and renders its actual geometry into a card preview. Rebuild afterward to include the PNGs in `dist`. Update matching entries in `src/catalog.js` if the source object counts change.
+With that preview running, use another terminal for `npm run preview:villages`. It verifies every imported model and renders its actual geometry into a compact JPEG card preview. Rebuild afterward to include the previews in `dist`. Update matching entries in `src/catalog.js` if the source object counts change.
 
 The exporter evaluates modifiers and realizes collection instances without flattening repeated geometry in the downloaded GLB. Multi-material objects are restored as single selectable source parts in the viewer. The browser uses independent inspection geometry so hide, isolate, offsets, and explosion remain per object. Camera range, depth precision, grid and lighting adapt to asset size; original meter dimensions are retained.
 

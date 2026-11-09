@@ -32,7 +32,7 @@ const assert = require('node:assert/strict');
         await page.mouse.wheel(0, 180);
         await page.waitForTimeout(500);
       }
-      await page.locator('#viewport canvas').screenshot({ path: `public/models/villages/${model.id}-preview.png` });
+      await page.locator('#viewport canvas').screenshot({ path: `public/models/villages/${model.id}-preview.jpg`, type: 'jpeg', quality: 88 });
       results.push({ id: model.id, ...metrics, readyMs: await page.evaluate(() => window.roboJack.loading.readyMs) });
       console.log(`VERIFIED ${model.id}: ${metrics.partCount} parts; preview saved`);
       await page.close();
