@@ -35,18 +35,28 @@ function bounds(doc) {
   return result;
 }
 for (const entry of manifest) {
+  const largeScene = ['crystalbrook-village', 'ashwick-walled-village'].includes(entry.id);
+  const file = `${entry.id}.${largeScene ? 'meshopt-v2' : 'meshopt'}.glb`;
   const document = await io.read(`${source}/${entry.id}.glb`);
   const before = snapshot(document);
   const originalBounds = bounds(document);
-  await document.transform(weld(), dedup({ propertyTypes: ['Accessor', 'Material', 'Mesh'] }),
-    prune({ keepLeaves: true }), reorder({ encoder: MeshoptEncoder, target: 'size' }),
-    quantize({ quantizePosition: 16, quantizeNormal: 12, quantizeTexcoord: 16, cleanup: false }),
-    prune({ keepLeaves: true }));
-  // Keep all triangles; bound the effect of 16-bit position quantization below.
+  if (largeScene) {
+    await document.transform(weld(), dedup({ propertyTypes: ['Accessor', 'Material', 'Mesh'] }),
+      prune({ keepLeaves: true }),
+      quantize({ quantizePosition: 14, quantizeNormal: 10, quantizeTexcoord: 16, cleanup: false }),
+      weld(), dedup({ propertyTypes: ['Accessor', 'Material', 'Mesh'] }),
+      reorder({ encoder: MeshoptEncoder, target: 'size' }), prune({ keepLeaves: true }));
+  } else {
+    await document.transform(weld(), dedup({ propertyTypes: ['Accessor', 'Material', 'Mesh'] }),
+      prune({ keepLeaves: true }), reorder({ encoder: MeshoptEncoder, target: 'size' }),
+      quantize({ quantizePosition: 16, quantizeNormal: 12, quantizeTexcoord: 16, cleanup: false }),
+      prune({ keepLeaves: true }));
+  }
+  // Preserve source parts and topology; bound the quantization error below.
   document.createExtension(EXTMeshoptCompression).setRequired(true)
-    .setEncoderOptions({ method: EXTMeshoptCompression.EncoderMethod.QUANTIZE });
-  await io.write(`${output}/${entry.id}.meshopt.glb`, document);
-  const decoded = await io.read(`${output}/${entry.id}.meshopt.glb`);
+    .setEncoderOptions({ method: largeScene ? EXTMeshoptCompression.EncoderMethod.FILTER : EXTMeshoptCompression.EncoderMethod.QUANTIZE });
+  await io.write(`${output}/${file}`, document);
+  const decoded = await io.read(`${output}/${file}`);
   const after = snapshot(decoded);
   if (JSON.stringify(before) !== JSON.stringify(after)) throw Error(`Part metadata changed: ${entry.id}`);
   entry.maxBoundsDeviationMeters = 0;
@@ -56,7 +66,8 @@ for (const entry of manifest) {
     });
   }
   if (entry.maxBoundsDeviationMeters > 0.001) throw Error(`Bounds changed by more than 1 mm: ${entry.id}`);
-  entry.optimizedBytes = (await stat(`${output}/${entry.id}.meshopt.glb`)).size;
+  entry.file = file;
+  entry.optimizedBytes = (await stat(`${output}/${file}`)).size;
   console.log(`${entry.id}: ${entry.partCount} parts, ${(entry.optimizedBytes / 1048576).toFixed(2)} MB`);
 }
 await writeFile(`${output}/manifest.json`, JSON.stringify(manifest, null, 2) + '\n');

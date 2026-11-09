@@ -57,7 +57,7 @@ The home page displays model cards. `viewer.html?model=robo-jack` opens the part
 
 The catalog loads `robo-jack.meshopt.glb` (3,341,624 bytes) rather than the original 4,574,844-byte export. `npm run optimize:model` rebuilds it using lossless Meshopt encoding, exact vertex welding, and duplicate accessor/material removal; selectable nodes and their metadata are retained. The source export and Blender file remain unchanged. The decoder is bundled locally.
 
-Model cards prefetch the asset on hover or keyboard focus, except with Save Data or slow 2G connections. Download progress is capped at 85%, preparation uses 88%, and first-frame preparation uses 95%. The viewer reports 100% and removes the overlay only after validating the expected part count, preparing shaders, and submitting a frame with rendered geometry. Download, decode, preparation, and initial render failures show an error instead of a completion status.
+Model cards prefetch the asset on hover or keyboard focus, except with Save Data or slow 2G connections. Download progress stays below 85% until the response stream ends; decoding uses 85%, preparation uses 88%, and first-frame preparation uses 95%. The GLB header provides the decoded byte total, avoiding the misleading early completion caused by gzip `Content-Length`. The viewer reports 100% and removes the overlay only after validating the expected part count, preparing shaders, and submitting a frame with rendered geometry. Download, decode, preparation, and initial render failures show an error instead of a completion status.
 
 Validation: `npm run test:asset` compares all 387 world-space bounds; `npm run test:browser` checks interactions; `npm run test:loading` checks successful completion and failed/delayed downloads. These browser tests use the production preview at `http://127.0.0.1:4174/model/` (build with `npm run build -- --base=/model/`, then `npm run preview -- --port 4174 --base=/model/`).
 
@@ -80,15 +80,20 @@ npm run preview -- --port 4174 --base=/model/
 
 With that preview running, use another terminal for `npm run preview:villages`. It verifies every imported model and renders its actual geometry into a compact JPEG card preview. Rebuild afterward to include the previews in `dist`. Update matching entries in `src/catalog.js` if the source object counts change.
 
-The exporter evaluates modifiers and realizes collection instances without flattening repeated geometry in the downloaded GLB. Multi-material objects are restored as single selectable source parts in the viewer. The browser uses independent inspection geometry so hide, isolate, offsets, and explosion remain per object. Camera range, depth precision, grid and lighting adapt to asset size; original meter dimensions are retained.
+The exporter evaluates modifiers and realizes collection instances without flattening repeated geometry in the downloaded GLB. Each source object, including its material primitives, is one selectable part. The browser retains shared, quantized geometry and updates only object transforms for offsets and explosion in world meters. It no longer clones and transforms every vertex during loading. Large scenes decode with up to two Meshopt workers. Static shadows are reused until visibility or geometry placement changes. Camera range, depth precision, grid and lighting adapt to asset size; original meter dimensions are retained.
 
-The asset optimizer deduplicates repeated geometry/materials and applies Meshopt compression with 16-bit positions and 12-bit normals. It preserves names and metadata, and checks every object's world-space bounds against the raw export with a 1 mm tolerance. No triangle simplification is applied. Six Ashwick terrain materials use their authored viewport color because their shader color was still Blender's default. Other shader colors are preserved; procedural bump is not baked. `public/models/villages/manifest.json` records source SHA-256 hashes, object counts, export sizes, measured bound deviations, and part names.
+The asset optimizer deduplicates repeated geometry/materials and applies Meshopt compression. The two complete villages use 14-bit positions and octahedral normal encoding; smaller assets retain 16-bit positions and 12-bit normals. It preserves names and metadata, and checks every object's world-space bounds against the raw export with a 1 mm tolerance. No triangle simplification is applied. Six Ashwick terrain materials use their authored viewport color because their shader color was still Blender's default. Other shader colors are preserved; procedural bump is not baked. `public/models/villages/manifest.json` records source SHA-256 hashes, object counts, export sizes, measured bound deviations, and part names. The complete villages use versioned `meshopt-v2.glb` URLs to avoid reusing cached older downloads.
 
 Additional checks against the production preview:
 
 ```powershell
 npm run test:gallery
 npm run test:villages
+npm run test:compressed-loading
 ```
 
 These cover catalog coverage, previews, collection search, selection, isolation, hiding, offsets, focus, explosion, reset, and mobile overflow. `npm run preview:villages` additionally checks readiness and expected part counts for all 35 imported assets. Existing Robo-Jack asset, browser, and loading tests remain available.
+
+The compressed-loading test holds back the end of a real gzip response and verifies the viewer keeps reporting a download until EOF, then renders all 161 Crystalbrook parts. It also rejects truncated GLBs. With a previous production build in `test-results/baseline-dist` (or `BASELINE_DIR`), `npm run benchmark:villages` compares three cold loads per version using gzip, 5 Mbps throughput, 40 ms latency, and 4× CPU slowdown. Results are saved to `test-results/village-loading-comparison.json`; load diagnostics expose download, decode, preparation, and first-frame timings separately.
+
+On November 10, 2026, the three-run Crystalbrook median navigation-to-render time under those conditions fell from 25.48 s to 14.47 s (43.2%). The compressed response fell from 10.67 MB to 7.06 MB, with all 161 parts retained. Its largest measured object-bound deviation is 0.94 mm. Browser memory at readiness fell from a median 294.6 MB to 127.4 MB in the same runs. Timings depend on the network and hardware.

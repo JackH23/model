@@ -9,14 +9,14 @@ export const models = [
   {
     id: 'crystalbrook-village', name: 'Crystalbrook Village', category: 'Environment / Village',
     description: 'Terraced cottages, a crystal fountain, rivers and planted cliffs. Explore the complete Crystalbrook Village.',
-    file: 'models/villages/crystalbrook-village.meshopt.glb', preview: 'models/villages/crystalbrook-village-preview.jpg',
+    file: 'models/villages/crystalbrook-village.meshopt-v2.glb', preview: 'models/villages/crystalbrook-village-preview.jpg',
     partCount: 161, grouping: 'assembly', badge: 'CV',
     viewDirection: [1.5, 2.5, 3],
   },
   {
     id: 'ashwick-walled-village', name: 'Ashwick · Walled Village', category: 'Environment / Village',
     description: 'A complete Ashwick settlement, with fortified walls, village buildings, market stalls and riverside scenery.',
-    file: 'models/villages/ashwick-walled-village.meshopt.glb', preview: 'models/villages/ashwick-walled-village-preview.jpg',
+    file: 'models/villages/ashwick-walled-village.meshopt-v2.glb', preview: 'models/villages/ashwick-walled-village-preview.jpg',
     partCount: 900, grouping: 'assembly', badge: 'AW',
     viewDirection: [1.5, 2.5, 3],
   },

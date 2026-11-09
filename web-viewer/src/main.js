@@ -4,7 +4,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { MeshoptDecoder } from 'meshoptimizer/decoder';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
-import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
+import { downloadGlb } from './load-glb.js';
 import '@fontsource/dm-sans/latin-400.css';
 import '@fontsource/dm-sans/latin-500.css';
 import '@fontsource/dm-sans/latin-600.css';
@@ -47,6 +47,8 @@ renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.0;
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.shadowMap.autoUpdate = model.grouping === 'robot';
+renderer.shadowMap.needsUpdate = true;
 viewport.append(renderer.domElement);
 renderer.domElement.setAttribute('aria-label', `${model.name} interactive 3D assembly. Drag to orbit, scroll to zoom, click a part to select.`);
 const controls = new OrbitControls(camera, renderer.domElement);
@@ -109,6 +111,7 @@ const raycaster = new THREE.Raycaster();
 const pointer = new THREE.Vector2();
 const modelBounds = new THREE.Box3();
 const rows = new Map();
+const partForMesh = new WeakMap();
 let cameraTween = null;
 let toastTimer;
 function toast(message) {
@@ -157,11 +160,14 @@ function fitVisible() {
 function updateTransforms() {
   for (const record of state.records) {
     record.mesh.position.copy(record.initialPosition).add(record.offset).addScaledVector(record.explodeDirection, state.explode * 0.3 * modelScale);
+    if (!record.mesh.matrixAutoUpdate) record.mesh.matrix.setPosition(record.mesh.position);
   }
+  renderer.shadowMap.needsUpdate = true;
   scene.updateMatrixWorld(true);
   updateSelectionBox();
 }
 function updateVisibility() {
+  renderer.shadowMap.needsUpdate = true;
   for (const record of state.records) {
     record.mesh.visible = !record.hidden && (!state.isolate || state.isolate === record.id);
     const row = rows.get(record.id);
@@ -177,6 +183,7 @@ function updateSelectionBox() {
 }
 function setWireframe(value) {
   for (const record of state.records) for (const material of record.materials) material.wireframe = value;
+  renderer.shadowMap.needsUpdate = true;
 }
 function select(record) {
   if (state.selected) {
@@ -203,7 +210,7 @@ function select(record) {
   $('selected-region').textContent = record.region.toUpperCase();
   $('selected-material').textContent = [...new Set(record.materials.map((m) => m.name.replace(/^Web_/, '').replace(/^PH1_/, '')))].join(', ') || 'Standard';
   $('selected-triangles').textContent = record.triangles.toLocaleString();
-  const size = record.mesh.geometry.boundingBox.getSize(new THREE.Vector3());
+  const size = record.size;
   $('selected-size').textContent = [size.x, size.y, size.z].map((v) => v.toFixed(3)).join(' × ');
   for (const axis of ['x', 'y', 'z']) $(`move-${axis}`).value = record.offset[axis].toFixed(2);
   updateVisibility();
@@ -242,8 +249,8 @@ function hitRecord(event) {
   const rect = renderer.domElement.getBoundingClientRect();
   pointer.set(((event.clientX - rect.left) / rect.width) * 2 - 1, -((event.clientY - rect.top) / rect.height) * 2 + 1);
   raycaster.setFromCamera(pointer, camera);
-  const hits = raycaster.intersectObjects(state.records.filter((r) => r.mesh.visible).map((r) => r.mesh), false);
-  return hits.length ? state.records.find((r) => r.mesh === hits[0].object) : null;
+  const hits = raycaster.intersectObjects(state.records.filter((r) => r.mesh.visible).map((r) => r.mesh), true);
+  return hits.length ? partForMesh.get(hits[0].object) : null;
 }
 let down = null;
 renderer.domElement.addEventListener('pointerdown', (event) => { if (event.button === 0) down = { x: event.clientX, y: event.clientY }; });
@@ -326,7 +333,7 @@ new ResizeObserver(resize).observe(viewport);
 resize();
 renderer.domElement.addEventListener('webglcontextlost', (event) => { event.preventDefault(); if (!state.loaded) loadFailed(new Error('Graphics context lost during loading')); else toast('Graphics paused. Waiting for the browser to restore WebGL…'); });
 renderer.domElement.addEventListener('webglcontextrestored', () => toast('Graphics restored'));
-const loadTiming = { startedMs: performance.now(), downloadMs: null, readyMs: null };
+const loadTiming = { startedMs: performance.now(), downloadMs: null, decodeMs: null, preparationMs: null, renderMs: null, readyMs: null };
 let loadStage = 'downloading';
 function progress(percent, message) {
   $('progress').textContent = `${percent}% · ${message}`;
@@ -343,60 +350,29 @@ function loadFailed(error) {
   console.error('Model loading failed', error);
 }
 progress(0, 'Downloading model');
-// glTF splits multi-material Blender objects into primitives. Keep each source
-// object selectable as one part, with its original materials and metadata.
-function inspectionGeometry(source) {
-  const geometry = source.clone();
-  // Integer attributes must become floats before world-space transforms; writing
-  // transformed coordinates back into normalized integers would clamp the model.
-  for (const name of ['position', 'normal', 'tangent']) {
-    const attribute = geometry.getAttribute(name);
-    if (!attribute?.normalized) continue;
-    const values = new Float32Array(attribute.count * attribute.itemSize);
-    for (let i = 0; i < attribute.count; i++) {
-      for (let component = 0; component < attribute.itemSize; component++) values[i * attribute.itemSize + component] = attribute.getComponent(i, component);
-    }
-    geometry.setAttribute(name, new THREE.Float32BufferAttribute(values, attribute.itemSize));
-  }
-  return geometry;
-}
-function restoreSourceParts(root) {
-  const groups = [];
+// Keep source objects and their material primitives intact. Only the small
+// object matrices move: geometry stays quantized and shared on the GPU.
+function sourceParts(root) {
+  const parts = [];
+  root.updateMatrixWorld(true);
   root.traverse(node => {
-    if (!node.isMesh && node.userData.sourceName && node.children.length && node.children.every(child => child.isMesh)) groups.push(node);
+    if (model.grouping === 'robot' ? node.isMesh : node.userData.sourceName && (node.isMesh || node.children.some(child => child.isMesh))) parts.push(node);
   });
-  for (const group of groups) {
-    const materials = group.children.map(child => child.material);
-    const geometries = group.children.map(child => {
-      child.updateMatrix();
-      return inspectionGeometry(child.geometry).applyMatrix4(child.matrix);
+  if (model.grouping !== 'robot') {
+    const matrices = parts.map(part => part.matrixWorld.clone());
+    root.clear();
+    parts.forEach((part, index) => {
+      root.add(part);
+      part.matrix.copy(matrices[index]);
+      part.matrixAutoUpdate = false;
+      part.position.setFromMatrixPosition(part.matrix);
     });
-    const geometry = mergeGeometries(geometries, true);
-    geometries.forEach(item => item.dispose());
-    if (!geometry) throw new Error(`Could not prepare source part: ${group.userData.sourceName}`);
-    const mesh = new THREE.Mesh(geometry, materials);
-    mesh.name = group.name;
-    mesh.userData = { ...group.userData };
-    group.clear(); group.add(mesh);
+    root.updateMatrixWorld(true);
   }
+  return parts;
 }
 function fitModelStage(root) {
   if (model.grouping === 'robot') return;
-  // Bake source transforms into independent inspection geometry. The downloaded
-  // asset can still share repeated meshes, while offsets stay in world meters.
-  root.updateMatrixWorld(true);
-  const meshes = [];
-  root.traverse(mesh => {
-    if (!mesh.isMesh) return;
-    mesh.geometry = inspectionGeometry(mesh.geometry).applyMatrix4(mesh.matrixWorld);
-    meshes.push(mesh);
-  });
-  root.clear();
-  for (const mesh of meshes) {
-    mesh.position.set(0, 0, 0); mesh.quaternion.identity(); mesh.scale.set(1, 1, 1);
-    root.add(mesh);
-  }
-  root.updateMatrixWorld(true);
   const bounds = new THREE.Box3().setFromObject(root);
   const center = bounds.getCenter(new THREE.Vector3());
   const size = bounds.getSize(new THREE.Vector3());
@@ -421,24 +397,49 @@ function fitModelStage(root) {
   key.shadow.camera.updateProjectionMatrix();
 }
 const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
-loader.load(assetUrl(model.file), async (gltf) => {
+async function loadModel() {
  try {
+  const url = assetUrl(model.file);
+  const bytes = await downloadGlb(url, ({ loaded, total }) => {
+    progress(total ? Math.min(84, Math.round(loaded / total * 85)) : 0,
+      total ? `Downloading model · ${(loaded / 1048576).toFixed(1)} / ${(total / 1048576).toFixed(1)} MB` : `Downloading model · ${(loaded / 1048576).toFixed(1)} MB`);
+  });
+  loadTiming.downloadMs = performance.now() - loadTiming.startedMs;
+  loadStage = 'decoding'; progress(85, 'Download complete · Decoding model');
+  await new Promise(requestAnimationFrame);
+  const decodeStart = performance.now();
+  const workers = model.grouping !== 'robot' && model.partCount > 100 && typeof Worker !== 'undefined';
+  if (workers) MeshoptDecoder.useWorkers(Math.min(2, Math.max(1, (navigator.hardwareConcurrency || 2) - 1)));
+  let gltf;
+  try { gltf = await loader.parseAsync(bytes, new URL('.', new URL(url, location.href)).href); }
+  finally { if (workers) MeshoptDecoder.useWorkers(0); }
+  loadTiming.decodeMs = performance.now() - decodeStart;
   loadStage = 'preparing'; progress(88, 'Preparing individual parts');
   await new Promise(requestAnimationFrame);
+  const prepareStart = performance.now();
   prepareEnvironment();
   const robot = gltf.scene; robot.name = model.name; scene.add(robot); robot.updateMatrixWorld(true);
-  restoreSourceParts(robot); fitModelStage(robot);
+  const parts = sourceParts(robot); fitModelStage(robot);
   const assemblyCenter = new THREE.Box3().setFromObject(robot).getCenter(new THREE.Vector3());
-  robot.traverse((mesh) => {
-    if (!mesh.isMesh) return;
+  for (const mesh of parts) {
     mesh.name = mesh.userData.sourceName || mesh.name;
-    if (!mesh.geometry.boundingBox) mesh.geometry.computeBoundingBox();
-    if (!mesh.geometry.boundingSphere) mesh.geometry.computeBoundingSphere();
-    mesh.castShadow = mesh.geometry.boundingBox.getSize(new THREE.Vector3()).length() > 0.045;
-    mesh.receiveShadow = true;
-    const originals = Array.isArray(mesh.material) ? mesh.material : [mesh.material];
-    const materials = originals.map((m) => m.clone()); mesh.material = Array.isArray(mesh.material) ? materials : materials[0];
-    const center = new THREE.Box3().setFromObject(mesh).getCenter(new THREE.Vector3());
+    const children = [];
+    mesh.traverse(child => { if (child.isMesh) children.push(child); });
+    const materials = [];
+    let triangles = 0;
+    for (const child of children) {
+      if (!child.geometry.boundingBox) child.geometry.computeBoundingBox();
+      if (!child.geometry.boundingSphere) child.geometry.computeBoundingSphere();
+      child.castShadow = new THREE.Box3().setFromObject(child).getSize(new THREE.Vector3()).length() > 0.045;
+      child.receiveShadow = true;
+      const originals = Array.isArray(child.material) ? child.material : [child.material];
+      const copies = originals.map(material => material.clone());
+      child.material = Array.isArray(child.material) ? copies : copies[0];
+      materials.push(...copies);
+      triangles += (child.geometry.index?.count ?? child.geometry.attributes.position.count) / 3;
+    }
+    const box = new THREE.Box3().setFromObject(mesh);
+    const center = box.getCenter(new THREE.Vector3());
     const region = regionFor(mesh, center);
     const direction = new THREE.Vector3();
     if (model.grouping !== 'robot') direction.copy(center).sub(assemblyCenter).normalize();
@@ -447,16 +448,19 @@ loader.load(assetUrl(model.file), async (gltf) => {
     else if (region.includes('leg')) direction.set(region === 'Left leg' ? 0.65 : -0.65, -0.6, center.z * 0.4);
     else if (region === 'Pelvis') direction.set(Math.sign(center.x) * 0.3, -0.25, center.z >= 0 ? 0.7 : -0.7);
     else direction.set(Math.sign(center.x) * 0.15, 0, center.z >= 0 ? 0.85 : -0.85);
-    const record = { id: mesh.uuid, mesh, region, label: mesh.userData.label || readable(mesh.userData.sourceName || mesh.name), materials, originalEmissive: materials.map((m) => ({ color: m.emissive?.clone() || new THREE.Color(), intensity: m.emissiveIntensity ?? 1 })), initialPosition: mesh.position.clone(), offset: new THREE.Vector3(), explodeDirection: direction, hidden: false, triangles: (mesh.geometry.index?.count ?? mesh.geometry.attributes.position.count) / 3 };
+    const record = { id: mesh.uuid, mesh, region, label: mesh.userData.label || readable(mesh.userData.sourceName || mesh.name), materials, originalEmissive: materials.map((m) => ({ color: m.emissive?.clone() || new THREE.Color(), intensity: m.emissiveIntensity ?? 1 })), initialPosition: mesh.position.clone(), offset: new THREE.Vector3(), explodeDirection: direction, hidden: false, size: box.getSize(new THREE.Vector3()), triangles };
     state.records.push(record);
-  });
+    for (const child of children) partForMesh.set(child, record);
+  }
   state.records.sort((a, b) => a.label.localeCompare(b.label));
   modelBounds.setFromObject(robot); buildList(); frame(modelBounds, defaultView, true);
   if (!state.records.length || modelBounds.isEmpty()) throw new Error('The model has no renderable parts');
   if (model.partCount && state.records.length !== model.partCount) throw new Error('The model is missing expected parts');
   $('part-count').textContent = String(state.records.length);
+  loadTiming.preparationMs = performance.now() - prepareStart;
   loadStage = 'rendering'; progress(95, 'Preparing first frame');
   await new Promise(requestAnimationFrame);
+  const renderStart = performance.now();
   let shaderFailed = false;
   renderer.debug.onShaderError = () => { shaderFailed = true; };
   await renderer.compileAsync(scene, camera);
@@ -464,22 +468,16 @@ loader.load(assetUrl(model.file), async (gltf) => {
   if (shaderFailed || renderer.getContext().isContextLost() || renderer.info.render.triangles === 0) throw new Error('The first frame could not render');
   // Let the submitted model frame reach the screen before reporting completion.
   await new Promise(requestAnimationFrame);
+  loadTiming.renderMs = performance.now() - renderStart;
   loadTiming.readyMs = performance.now() - loadTiming.startedMs;
   loadStage = 'ready'; progress(100, 'Model rendered successfully');
   $('load-state').textContent = `${state.records.length} PARTS / READY`;
   state.loaded = true; $('loading').hidden = true;
  } catch (error) { loadFailed(error); }
-}, (event) => {
-  if (loadStage !== 'downloading') return;
-  if (event.total && event.loaded >= event.total) {
-    loadTiming.downloadMs = performance.now() - loadTiming.startedMs;
-    progress(85, 'Download complete · Decoding model');
-  } else {
-    progress(event.total ? Math.min(84, Math.round(event.loaded / event.total * 85)) : 0,
-      event.total ? 'Downloading model' : `Downloading model · ${(event.loaded / 1048576).toFixed(1)} MB`);
-  }
-}, loadFailed);
+}
+loadModel();
 renderer.setAnimationLoop((time) => {
+  if (!state.loaded) return;
   if (cameraTween) {
     const t = Math.min(1, (time - cameraTween.start) / 450); const ease = 1 - (1 - t) ** 3;
     camera.position.lerpVectors(cameraTween.from, cameraTween.to, ease); controls.target.lerpVectors(cameraTween.fromTarget, cameraTween.toTarget, ease);

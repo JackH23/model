@@ -25,11 +25,16 @@ const { models } = require('../src/catalog.js');
   page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
   const base = process.env.TEST_URL || 'http://127.0.0.1:4174/model/';
   try {
-    for (const id of ['crystalbrook-village', 'ashwick-walled-village', 'ashwick-small-cottage', 'ashwick-blacksmith-workshop', 'ashwick-supply-sack']) {
+    const interactionModels = new Set(['crystalbrook-village', 'ashwick-walled-village', 'ashwick-small-cottage', 'ashwick-blacksmith-workshop', 'ashwick-supply-sack']);
+    for (const { id } of models.filter(model => model.grouping !== 'robot')) {
       await page.goto(`${base}viewer.html?model=${id}`);
       await page.waitForFunction(() => window.roboJack?.ready, null, { timeout: 120000 });
       const model = models.find(model => model.id === id);
       assert.equal(await page.locator('.part-row').count(), model.partCount);
+      if (!interactionModels.has(id)) {
+        console.log(`PASS: ${id} loads all ${model.partCount} source parts`);
+        continue;
+      }
       const first = await page.evaluate(() => window.roboJack.parts[0]);
       await page.locator('#search').fill(first.name);
       await page.locator('.part-row button').first().click();
@@ -39,8 +44,22 @@ const { models } = require('../src/catalog.js');
       await page.locator('#hide-selected').click();
       assert.equal(await page.evaluate(() => window.roboJack.parts.filter(part => part.visible).length), 0);
       await page.locator('#hide-selected').click();
+      const beforeMove = await page.evaluate(name => window.roboJack.screenPoint(name), first.name);
       await page.locator('#move-x').fill('0.25');
       assert.equal(await page.evaluate(name => window.roboJack.parts.find(part => part.name === name).offset[0], first.name), 0.25);
+      const afterMove = await page.evaluate(name => window.roboJack.screenPoint(name), first.name);
+      assert.ok(Math.hypot(afterMove.x - beforeMove.x, afterMove.y - beforeMove.y) > 0.1, `${id}: source geometry must actually move`);
+      await page.locator('#reset-part').click();
+      const resetPoint = await page.evaluate(name => window.roboJack.screenPoint(name), first.name);
+      assert.ok(Math.hypot(resetPoint.x - beforeMove.x, resetPoint.y - beforeMove.y) < 0.01, `${id}: source transform must restore`);
+      if (id === 'crystalbrook-village') {
+        await page.keyboard.press('Escape');
+        const point = await page.evaluate(name => window.roboJack.screenPoint(name), first.name);
+        await page.mouse.click(point.x, point.y);
+        assert.ok(await page.evaluate(() => window.roboJack.selected), 'Picking a material primitive must select its source part');
+        await page.locator('#search').fill(first.name);
+        await page.locator('.part-row button').first().click();
+      }
       await page.locator('#focus').click();
       await page.locator('#reset-all').click();
       assert.equal(await page.evaluate(() => window.roboJack.parts.filter(part => part.visible).length), model.partCount);

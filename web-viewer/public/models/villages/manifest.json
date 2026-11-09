@@ -814,8 +814,9 @@
         "triangles": 2808
       }
     ],
-    "maxBoundsDeviationMeters": 0.00019734811021798748,
-    "optimizedBytes": 30321636
+    "maxBoundsDeviationMeters": 0.0009375014645502944,
+    "file": "crystalbrook-village.meshopt-v2.glb",
+    "optimizedBytes": 22388384
   },
   {
     "id": "ashwick-barrel",
@@ -848,6 +849,7 @@
       }
     ],
     "maxBoundsDeviationMeters": 0.0000075427597885369124,
+    "file": "ashwick-barrel.meshopt.glb",
     "optimizedBytes": 18244
   },
   {
@@ -991,6 +993,7 @@
       }
     ],
     "maxBoundsDeviationMeters": 0.000031835603500063314,
+    "file": "ashwick-blacksmith-workshop.meshopt.glb",
     "optimizedBytes": 360196
   },
   {
@@ -1029,6 +1032,7 @@
       }
     ],
     "maxBoundsDeviationMeters": 0.0000553913927221622,
+    "file": "ashwick-circular-plaza-paving.meshopt.glb",
     "optimizedBytes": 485368
   },
   {
@@ -1062,6 +1066,7 @@
       }
     ],
     "maxBoundsDeviationMeters": 0.0000182634219698663,
+    "file": "ashwick-cobblestone-path.meshopt.glb",
     "optimizedBytes": 87560
   },
   {
@@ -1100,6 +1105,7 @@
       }
     ],
     "maxBoundsDeviationMeters": 0.00004552414569536367,
+    "file": "ashwick-curved-curtain-wall.meshopt.glb",
     "optimizedBytes": 150260
   },
   {
@@ -1128,6 +1134,7 @@
       }
     ],
     "maxBoundsDeviationMeters": 0.000029193218835432688,
+    "file": "ashwick-fir-tree.meshopt.glb",
     "optimizedBytes": 28764
   },
   {
@@ -1161,6 +1168,7 @@
       }
     ],
     "maxBoundsDeviationMeters": 0.000007633171777987613,
+    "file": "ashwick-flower-box.meshopt.glb",
     "optimizedBytes": 156300
   },
   {
@@ -1219,6 +1227,7 @@
       }
     ],
     "maxBoundsDeviationMeters": 0.000034273461120865045,
+    "file": "ashwick-gathering-pit.meshopt.glb",
     "optimizedBytes": 218368
   },
   {
@@ -1317,6 +1326,7 @@
       }
     ],
     "maxBoundsDeviationMeters": 0.000023631655446276767,
+    "file": "ashwick-goods-market-stall.meshopt.glb",
     "optimizedBytes": 278496
   },
   {
@@ -1370,6 +1380,7 @@
       }
     ],
     "maxBoundsDeviationMeters": 0.000022984784883495202,
+    "file": "ashwick-handcart.meshopt.glb",
     "optimizedBytes": 100920
   },
   {
@@ -1593,6 +1604,7 @@
       }
     ],
     "maxBoundsDeviationMeters": 0.000040646573209013326,
+    "file": "ashwick-large-merchant-house.meshopt.glb",
     "optimizedBytes": 903900
   },
   {
@@ -1621,6 +1633,7 @@
       }
     ],
     "maxBoundsDeviationMeters": 0.00000898530470005987,
+    "file": "ashwick-leafy-shrub.meshopt.glb",
     "optimizedBytes": 87684
   },
   {
@@ -1824,6 +1837,7 @@
       }
     ],
     "maxBoundsDeviationMeters": 0.00003472862344944261,
+    "file": "ashwick-medium-residence.meshopt.glb",
     "optimizedBytes": 764348
   },
   {
@@ -1857,6 +1871,7 @@
       }
     ],
     "maxBoundsDeviationMeters": 0.000006878585561032047,
+    "file": "ashwick-packing-crate.meshopt.glb",
     "optimizedBytes": 37984
   },
   {
@@ -1885,6 +1900,7 @@
       }
     ],
     "maxBoundsDeviationMeters": 0.000014575627644175526,
+    "file": "ashwick-picket-fence.meshopt.glb",
     "optimizedBytes": 26208
   },
   {
@@ -1933,6 +1949,7 @@
       }
     ],
     "maxBoundsDeviationMeters": 0.000023455028913543785,
+    "file": "ashwick-rampart-watchtower.meshopt.glb",
     "optimizedBytes": 280056
   },
   {
@@ -1961,6 +1978,7 @@
       }
     ],
     "maxBoundsDeviationMeters": 0.000041809761935684975,
+    "file": "ashwick-river-reach.meshopt.glb",
     "optimizedBytes": 7548
   },
   {
@@ -1989,6 +2007,7 @@
       }
     ],
     "maxBoundsDeviationMeters": 0.000009780740412801414,
+    "file": "ashwick-riverbank-boulders.meshopt.glb",
     "optimizedBytes": 28732
   },
   {
@@ -2017,6 +2036,7 @@
       }
     ],
     "maxBoundsDeviationMeters": 0.000029790950628383328,
+    "file": "ashwick-rocky-cliff.meshopt.glb",
     "optimizedBytes": 42912
   },
   {
@@ -2170,6 +2190,7 @@
       }
     ],
     "maxBoundsDeviationMeters": 0.000022638850745160255,
+    "file": "ashwick-roofed-well.meshopt.glb",
     "optimizedBytes": 262332
   },
   {
@@ -2328,6 +2349,7 @@
       }
     ],
     "maxBoundsDeviationMeters": 0.00002840496846401308,
+    "file": "ashwick-small-cottage.meshopt.glb",
     "optimizedBytes": 441040
   },
   {
@@ -2381,6 +2403,7 @@
       }
     ],
     "maxBoundsDeviationMeters": 0.00010902042969829218,
+    "file": "ashwick-stone-bridge.meshopt.glb",
     "optimizedBytes": 919820
   },
   {
@@ -2419,6 +2442,7 @@
       }
     ],
     "maxBoundsDeviationMeters": 0.000028802815650097457,
+    "file": "ashwick-straight-curtain-wall.meshopt.glb",
     "optimizedBytes": 135840
   },
   {
@@ -2462,6 +2486,7 @@
       }
     ],
     "maxBoundsDeviationMeters": 0.000012997418817578543,
+    "file": "ashwick-street-lantern.meshopt.glb",
     "optimizedBytes": 31564
   },
   {
@@ -2560,6 +2585,7 @@
       }
     ],
     "maxBoundsDeviationMeters": 0.000023631655446276767,
+    "file": "ashwick-supplies-market-stall.meshopt.glb",
     "optimizedBytes": 233336
   },
   {
@@ -2583,6 +2609,7 @@
       }
     ],
     "maxBoundsDeviationMeters": 0.000005324887455193661,
+    "file": "ashwick-supply-sack.meshopt.glb",
     "optimizedBytes": 12556
   },
   {
@@ -2631,6 +2658,7 @@
       }
     ],
     "maxBoundsDeviationMeters": 0.000018160854440021912,
+    "file": "ashwick-tavern-sign.meshopt.glb",
     "optimizedBytes": 21832
   },
   {
@@ -2854,6 +2882,7 @@
       }
     ],
     "maxBoundsDeviationMeters": 0.00007676523438426841,
+    "file": "ashwick-town-hall.meshopt.glb",
     "optimizedBytes": 1808956
   },
   {
@@ -2942,6 +2971,7 @@
       }
     ],
     "maxBoundsDeviationMeters": 0.00003751997515921701,
+    "file": "ashwick-village-gate.meshopt.glb",
     "optimizedBytes": 210516
   },
   {
@@ -2985,6 +3015,7 @@
       }
     ],
     "maxBoundsDeviationMeters": 0.000018160854440021912,
+    "file": "ashwick-village-standard.meshopt.glb",
     "optimizedBytes": 26496
   },
   {
@@ -7497,8 +7528,9 @@
         "triangles": 11520
       }
     ],
-    "maxBoundsDeviationMeters": 0.00019907965657223192,
-    "optimizedBytes": 10258148
+    "maxBoundsDeviationMeters": 0.0007359993058240755,
+    "file": "ashwick-walled-village.meshopt-v2.glb",
+    "optimizedBytes": 5540916
   },
   {
     "id": "ashwick-waterfall-gorge",
@@ -7551,6 +7583,7 @@
       }
     ],
     "maxBoundsDeviationMeters": 0.000039873146234103984,
+    "file": "ashwick-waterfall-gorge.meshopt.glb",
     "optimizedBytes": 167532
   },
   {
@@ -7584,6 +7617,7 @@
       }
     ],
     "maxBoundsDeviationMeters": 0.0000065022128893366116,
+    "file": "ashwick-wildflowers.meshopt.glb",
     "optimizedBytes": 630332
   },
   {
@@ -7657,6 +7691,7 @@
       }
     ],
     "maxBoundsDeviationMeters": 0.000019701853565923244,
+    "file": "ashwick-woodshed.meshopt.glb",
     "optimizedBytes": 210476
   }
 ]
