@@ -7,12 +7,16 @@
     "dev": "vite --host 127.0.0.1",
     "build": "vite build",
     "preview": "vite preview --host 127.0.0.1",
-    "check": "node --check src/main.js",
+    "check": "node --check src/main.js && node --check src/catalog.js && node --check src/gallery.js",
     "test:browser": "node tests/smoke.cjs",
     "optimize:model": "node scripts/optimize-model.mjs",
     "test:loading": "node tests/loading.cjs",
     "test:asset": "node tests/asset-bounds.mjs",
-    "benchmark": "node tests/benchmark.cjs"
+    "benchmark": "node tests/benchmark.cjs",
+    "optimize:villages": "node scripts/optimize-villages.mjs",
+    "preview:villages": "node scripts/preview-villages.cjs",
+    "test:gallery": "node tests/gallery.cjs",
+    "test:villages": "node tests/villages.cjs"
   },
   "dependencies": {
     "@fontsource/dm-sans": "5.3.0",

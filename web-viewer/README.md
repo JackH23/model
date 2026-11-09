@@ -1,6 +1,6 @@
-# Robo-Jack Assembly Explorer
+# Model Library / Assembly Explorer
 
-A local Vite + Three.js viewer for the actual Robo-Jack Blender model. Individual visible objects remain separate meshes, with their Blender names and assembly metadata.
+A Vite + Three.js model library containing Robo-Jack, Crystalbrook Village, and all 34 Ashwick models. Individual source objects remain selectable, with their Blender names and assembly metadata.
 
 ## Run
 
@@ -62,3 +62,33 @@ Model cards prefetch the asset on hover or keyboard focus, except with Save Data
 Validation: `npm run test:asset` compares all 387 world-space bounds; `npm run test:browser` checks interactions; `npm run test:loading` checks successful completion and failed/delayed downloads. These browser tests use the production preview at `http://127.0.0.1:4174/model/` (build with `npm run build -- --base=/model/`, then `npm run preview -- --port 4174 --base=/model/`).
 
 `npm run benchmark` compares original and compressed assets with a fresh browser cache under simulated 5 Mbps throughput and 40 ms latency. Three trials measured median navigation-to-render readiness of 9.86 s for the original and 7.84 s for the optimized asset. Results depend on hardware and network. Local unthrottled timing is dominated by shader and GPU startup, so file-size savings do not imply the same percentage improvement on localhost.
+
+## Crystalbrook and Ashwick imports
+
+The existing catalog/card/part-inspector pattern is shared by all 36 models. Crystalbrook contains 161 selectable objects, and the assembled Ashwick Walled Village contains 900, including collection instances. Each of the 33 standalone Ashwick assets also has its own card. Search by name, collection, or category.
+
+Local source copies are kept in `source-models/Crystalbrook_Village.blend` and `source-models/Ashwick/*.blend`. They were copied from `D:\DWB\Build game\Adventure Game\village` and `D:\DWB\blender 3D\HEARTHBOUND\material\section\Ashwick`. `.blend1` backups are not duplicate catalog entries. `source-models/` and `.asset-cache/` are ignored by Git and excluded from the published site; the originals are never modified.
+
+To re-export after updating the local source copies:
+
+```powershell
+& 'C:\Program Files\Blender Foundation\Blender 5.2\blender.exe' --background --factory-startup --python-exit-code 1 --python scripts/export-villages.py
+npm run optimize:villages
+npm run build -- --base=/model/
+npm run preview -- --port 4174 --base=/model/
+```
+
+With that preview running, use another terminal for `npm run preview:villages`. It verifies every imported model and renders its actual geometry into a card preview. Rebuild afterward to include the PNGs in `dist`. Update matching entries in `src/catalog.js` if the source object counts change.
+
+The exporter evaluates modifiers and realizes collection instances without flattening repeated geometry in the downloaded GLB. Multi-material objects are restored as single selectable source parts in the viewer. The browser uses independent inspection geometry so hide, isolate, offsets, and explosion remain per object. Camera range, depth precision, grid and lighting adapt to asset size; original meter dimensions are retained.
+
+The asset optimizer deduplicates repeated geometry/materials and applies Meshopt compression with 16-bit positions and 12-bit normals. It preserves names and metadata, and checks every object's world-space bounds against the raw export with a 1 mm tolerance. No triangle simplification is applied. Six Ashwick terrain materials use their authored viewport color because their shader color was still Blender's default. Other shader colors are preserved; procedural bump is not baked. `public/models/villages/manifest.json` records source SHA-256 hashes, object counts, export sizes, measured bound deviations, and part names.
+
+Additional checks against the production preview:
+
+```powershell
+npm run test:gallery
+npm run test:villages
+```
+
+These cover catalog coverage, previews, collection search, selection, isolation, hiding, offsets, focus, explosion, reset, and mobile overflow. `npm run preview:villages` additionally checks readiness and expected part counts for all 35 imported assets. Existing Robo-Jack asset, browser, and loading tests remain available.

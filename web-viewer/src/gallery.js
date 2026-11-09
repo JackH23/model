@@ -25,7 +25,7 @@ function render(query = '') {
     card.href = `${import.meta.env.BASE_URL}viewer.html?model=${encodeURIComponent(model.id)}`;
     card.setAttribute('aria-label', `Open ${model.name} interactive model`);
     const imageWrap = document.createElement('div'); imageWrap.className = 'card-image';
-    const image = document.createElement('img'); image.src = assetUrl(model.preview); image.alt = `${model.name} 3D model preview`; image.width = 900; image.height = 900;
+    const image = document.createElement('img'); image.src = assetUrl(model.preview); image.alt = `${model.name} 3D model preview`; image.width = 900; image.height = 900; image.loading = 'lazy'; image.decoding = 'async';
     const chip = document.createElement('span'); chip.className = 'card-chip'; chip.textContent = 'INTERACTIVE 3D';
     imageWrap.append(image, chip);
     const body = document.createElement('div'); body.className = 'card-body';

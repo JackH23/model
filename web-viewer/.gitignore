@@ -3,3 +3,5 @@ dist/
 .vite/
 test-results/
 *.log
+source-models/
+.asset-cache/

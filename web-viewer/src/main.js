@@ -4,6 +4,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { MeshoptDecoder } from 'meshoptimizer/decoder';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import '@fontsource/dm-sans/latin-400.css';
 import '@fontsource/dm-sans/latin-500.css';
 import '@fontsource/dm-sans/latin-600.css';
@@ -24,6 +25,16 @@ document.title = `${model.name} / Assembly Explorer`;
 document.querySelector('.brand').lastElementChild.innerHTML = `${model.name.toUpperCase()}<small>ASSEMBLY EXPLORER</small>`;
 document.querySelector('.stage-heading .eyebrow').textContent = `${model.name.toUpperCase()} / 001`;
 $('loading').querySelector('strong').textContent = `Assembling ${model.name}`;
+document.querySelector('.brand-mark').firstChild.textContent = model.badge || 'M';
+document.querySelector('.mini-mark').textContent = model.badge || 'M';
+$('search').setAttribute('aria-label', `Search ${model.name} parts`);
+$('parts').setAttribute('aria-label', `${model.name} parts`);
+document.querySelector('.stage').setAttribute('aria-label', `${model.name} interactive 3D viewer`);
+document.querySelector('meta[name="description"]').content = model.description;
+if (model.grouping !== 'robot') {
+  document.querySelector('.stage-heading h2').innerHTML = 'Every part.<br>One build.';
+  $('empty-selection').querySelector('p').textContent = 'Select a part on the model or in the assembly list.';
+}
 
 const viewport = $('viewport');
 const scene = new THREE.Scene();
@@ -91,6 +102,8 @@ selectionBox.visible = false;
 scene.add(selectionBox);
 
 const state = { records: [], selected: null, isolate: null, explode: 0, loaded: false };
+const defaultView = new THREE.Vector3(...(model.viewDirection || [1.5, 0.65, 3]));
+let modelScale = 1;
 const groups = ['Head', 'Torso', 'Left arm', 'Right arm', 'Pelvis', 'Left leg', 'Right leg', 'Other'];
 const raycaster = new THREE.Raycaster();
 const pointer = new THREE.Vector2();
@@ -118,7 +131,7 @@ function regionFor(mesh, center) {
   if (center.y > 0.78) return 'Pelvis';
   return center.x > 0 ? 'Left leg' : 'Right leg';
 }
-function frame(bounds, direction = new THREE.Vector3(1.5, 0.65, 3), instant = false) {
+function frame(bounds, direction = defaultView, instant = false) {
   if (bounds.isEmpty()) return;
   const size = bounds.getSize(new THREE.Vector3());
   const target = bounds.getCenter(new THREE.Vector3());
@@ -143,7 +156,7 @@ function fitVisible() {
 }
 function updateTransforms() {
   for (const record of state.records) {
-    record.mesh.position.copy(record.initialPosition).add(record.offset).addScaledVector(record.explodeDirection, state.explode * 0.3);
+    record.mesh.position.copy(record.initialPosition).add(record.offset).addScaledVector(record.explodeDirection, state.explode * 0.3 * modelScale);
   }
   scene.updateMatrixWorld(true);
   updateSelectionBox();
@@ -252,6 +265,13 @@ renderer.domElement.addEventListener('pointermove', (event) => {
 });
 renderer.domElement.addEventListener('pointerleave', () => { $('hover-label').hidden = true; down = null; });
 controls.addEventListener('start', () => { cameraTween = null; });
+controls.addEventListener('change', () => {
+  if (model.grouping === 'robot') return;
+  // Match depth precision to the current inspection distance. A fixed tiny
+  // near plane makes adjacent roof tiles flicker at whole-village distances.
+  camera.near = Math.max(0.001, camera.position.distanceTo(controls.target) / 100);
+  camera.updateProjectionMatrix();
+});
 $('search').addEventListener('input', (event) => buildList(event.target.value));
 $('show-all').addEventListener('click', () => { state.isolate = null; state.records.forEach((r) => { r.hidden = false; }); updateVisibility(); });
 $('hide-selected').addEventListener('click', () => { if (!state.selected) return; state.selected.hidden = !state.selected.hidden; updateVisibility(); });
@@ -271,7 +291,7 @@ $('grid-toggle').addEventListener('change', (event) => { grid.visible = event.ta
 $('fit-model').addEventListener('click', fitVisible);
 document.querySelectorAll('[data-view]').forEach((button) => button.addEventListener('click', () => {
   document.querySelectorAll('[data-view]').forEach((b) => b.classList.toggle('active', b === button));
-  const directions = { perspective: new THREE.Vector3(1.5, 0.65, 3), front: new THREE.Vector3(0, 0.12, 3), side: new THREE.Vector3(3, 0.12, 0), back: new THREE.Vector3(0, 0.12, -3) };
+  const directions = { perspective: defaultView, front: new THREE.Vector3(0, 0.12, 3), side: new THREE.Vector3(3, 0.12, 0), back: new THREE.Vector3(0, 0.12, -3) };
   controls.autoRotate = false; $('rotate').checked = false;
   const bounds = new THREE.Box3(); state.records.filter((r) => r.mesh.visible).forEach((r) => bounds.union(new THREE.Box3().setFromObject(r.mesh)));
   frame(bounds, directions[button.dataset.view]);
@@ -287,7 +307,7 @@ $('reset-all').addEventListener('click', () => {
 });
 $('download-shot').addEventListener('click', () => {
   renderer.render(scene, camera);
-  const link = document.createElement('a'); link.download = 'robo-jack-view.png'; link.href = renderer.domElement.toDataURL('image/png'); link.click();
+  const link = document.createElement('a'); link.download = `${model.id}-view.png`; link.href = renderer.domElement.toDataURL('image/png'); link.click();
 });
 window.addEventListener('keydown', (event) => {
   if (['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) return;
@@ -323,6 +343,83 @@ function loadFailed(error) {
   console.error('Model loading failed', error);
 }
 progress(0, 'Downloading model');
+// glTF splits multi-material Blender objects into primitives. Keep each source
+// object selectable as one part, with its original materials and metadata.
+function inspectionGeometry(source) {
+  const geometry = source.clone();
+  // Integer attributes must become floats before world-space transforms; writing
+  // transformed coordinates back into normalized integers would clamp the model.
+  for (const name of ['position', 'normal', 'tangent']) {
+    const attribute = geometry.getAttribute(name);
+    if (!attribute?.normalized) continue;
+    const values = new Float32Array(attribute.count * attribute.itemSize);
+    for (let i = 0; i < attribute.count; i++) {
+      for (let component = 0; component < attribute.itemSize; component++) values[i * attribute.itemSize + component] = attribute.getComponent(i, component);
+    }
+    geometry.setAttribute(name, new THREE.Float32BufferAttribute(values, attribute.itemSize));
+  }
+  return geometry;
+}
+function restoreSourceParts(root) {
+  const groups = [];
+  root.traverse(node => {
+    if (!node.isMesh && node.userData.sourceName && node.children.length && node.children.every(child => child.isMesh)) groups.push(node);
+  });
+  for (const group of groups) {
+    const materials = group.children.map(child => child.material);
+    const geometries = group.children.map(child => {
+      child.updateMatrix();
+      return inspectionGeometry(child.geometry).applyMatrix4(child.matrix);
+    });
+    const geometry = mergeGeometries(geometries, true);
+    geometries.forEach(item => item.dispose());
+    if (!geometry) throw new Error(`Could not prepare source part: ${group.userData.sourceName}`);
+    const mesh = new THREE.Mesh(geometry, materials);
+    mesh.name = group.name;
+    mesh.userData = { ...group.userData };
+    group.clear(); group.add(mesh);
+  }
+}
+function fitModelStage(root) {
+  if (model.grouping === 'robot') return;
+  // Bake source transforms into independent inspection geometry. The downloaded
+  // asset can still share repeated meshes, while offsets stay in world meters.
+  root.updateMatrixWorld(true);
+  const meshes = [];
+  root.traverse(mesh => {
+    if (!mesh.isMesh) return;
+    mesh.geometry = inspectionGeometry(mesh.geometry).applyMatrix4(mesh.matrixWorld);
+    meshes.push(mesh);
+  });
+  root.clear();
+  for (const mesh of meshes) {
+    mesh.position.set(0, 0, 0); mesh.quaternion.identity(); mesh.scale.set(1, 1, 1);
+    root.add(mesh);
+  }
+  root.updateMatrixWorld(true);
+  const bounds = new THREE.Box3().setFromObject(root);
+  const center = bounds.getCenter(new THREE.Vector3());
+  const size = bounds.getSize(new THREE.Vector3());
+  const extent = Math.max(size.x, size.y, size.z);
+  if (!Number.isFinite(extent) || extent <= 0) throw new Error('Invalid model bounds');
+  root.position.sub(new THREE.Vector3(center.x, bounds.min.y, center.z));
+  root.updateMatrixWorld(true);
+  modelScale = extent / 1.8;
+  camera.near = Math.max(0.001, extent / 10000);
+  camera.far = Math.max(100, extent * 30);
+  camera.updateProjectionMatrix();
+  controls.minDistance = Math.max(0.02, extent / 100);
+  controls.maxDistance = Math.max(10, extent * 8);
+  grid.scale.setScalar(modelScale);
+  floor.scale.setScalar(Math.max(1, modelScale));
+  for (const light of [key, rim, fill]) light.position.multiplyScalar(modelScale);
+  key.shadow.camera.left = key.shadow.camera.bottom = -extent;
+  key.shadow.camera.right = key.shadow.camera.top = extent;
+  key.shadow.camera.near = Math.max(0.001, 0.1 * modelScale);
+  key.shadow.camera.far = 15 * modelScale;
+  key.shadow.normalBias = 0.004 * modelScale;
+  key.shadow.camera.updateProjectionMatrix();
+}
 const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
 loader.load(assetUrl(model.file), async (gltf) => {
  try {
@@ -330,6 +427,8 @@ loader.load(assetUrl(model.file), async (gltf) => {
   await new Promise(requestAnimationFrame);
   prepareEnvironment();
   const robot = gltf.scene; robot.name = model.name; scene.add(robot); robot.updateMatrixWorld(true);
+  restoreSourceParts(robot); fitModelStage(robot);
+  const assemblyCenter = new THREE.Box3().setFromObject(robot).getCenter(new THREE.Vector3());
   robot.traverse((mesh) => {
     if (!mesh.isMesh) return;
     mesh.name = mesh.userData.sourceName || mesh.name;
@@ -342,7 +441,8 @@ loader.load(assetUrl(model.file), async (gltf) => {
     const center = new THREE.Box3().setFromObject(mesh).getCenter(new THREE.Vector3());
     const region = regionFor(mesh, center);
     const direction = new THREE.Vector3();
-    if (region === 'Head') direction.set(center.x * 0.6, 1.1, center.z * 0.4);
+    if (model.grouping !== 'robot') direction.copy(center).sub(assemblyCenter).normalize();
+    else if (region === 'Head') direction.set(center.x * 0.6, 1.1, center.z * 0.4);
     else if (region.includes('arm')) direction.set(region === 'Left arm' ? 1 : -1, 0.1, center.z * 0.5);
     else if (region.includes('leg')) direction.set(region === 'Left leg' ? 0.65 : -0.65, -0.6, center.z * 0.4);
     else if (region === 'Pelvis') direction.set(Math.sign(center.x) * 0.3, -0.25, center.z >= 0 ? 0.7 : -0.7);
@@ -351,7 +451,7 @@ loader.load(assetUrl(model.file), async (gltf) => {
     state.records.push(record);
   });
   state.records.sort((a, b) => a.label.localeCompare(b.label));
-  modelBounds.setFromObject(robot); buildList(); frame(modelBounds, new THREE.Vector3(1.5, 0.65, 3), true);
+  modelBounds.setFromObject(robot); buildList(); frame(modelBounds, defaultView, true);
   if (!state.records.length || modelBounds.isEmpty()) throw new Error('The model has no renderable parts');
   if (model.partCount && state.records.length !== model.partCount) throw new Error('The model is missing expected parts');
   $('part-count').textContent = String(state.records.length);
